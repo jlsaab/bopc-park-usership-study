@@ -48,11 +48,30 @@ map.on('load', () => {
         source: 'bopc-parks',
         layout: {},
         paint: {
-            'fill-color': '##b3e2cd', // green color fill
-            'fill-opacity': 0.5,
-            
+            'fill-color': [
+                    'match',
+                    ['get', 'class'],
+                    'Major Park', '#b3e2cd',
+                    'Parkway', '#fdcdac',
+                    'Pocket Park', '#cbd5e8',
+                    'Circle', '#f4cae4',
+                    '#ccc' // other
+                ],
+            'fill-opacity': 1
         }
     })
+
+    // add an outline
+    map.addLayer({
+        'id': 'outline',
+        'type': 'line',
+        'source': 'bopc-parks',
+        'layout': {},
+        'paint': {
+            'line-color': '#000',
+            'line-width': 1
+        }
+    });
 
 });
 
@@ -67,5 +86,5 @@ map.on('load', () => {
 //     'Parkway', '#fdcdac',
 //     'Pocket Park', '#cbd5e8',
 //     'Circle', '#f4cae4',
-//     '#ccc'
+//     '#ccc' // other
 // ]
