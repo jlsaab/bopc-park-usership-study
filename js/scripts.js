@@ -9,7 +9,7 @@ const bounds = [
 // create the map
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v12',
+    style: 'mapbox://styles/mapbox/light-v11',
     center: [-78.88421, 42.89091],
     zoom: 10.92,
     maxBounds: bounds
@@ -38,7 +38,7 @@ map.on('load', () => {
     map.addSource('bopc-parks', {
         type: 'geojson',
         data: 'data/bopc-parks.geojson'
-    });
+    })
 
     // add basic park layer
     map.addLayer({
@@ -48,15 +48,17 @@ map.on('load', () => {
         source: 'bopc-parks',
         layout: {},
         paint: {
-            'fill-color': '#0080ff', // blue color fill
-            'fill-opacity': 0.5
+            'fill-color': '##b3e2cd', // green color fill
+            'fill-opacity': 0.5,
+            
         }
-    });
+    })
 
 });
 
 
 // from example in class:
+// should learn more about [match [_,_]]
 
 // 'fill-color': [
 //     'match',
