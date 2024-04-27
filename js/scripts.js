@@ -12,8 +12,11 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v11',
     center: [-78.88421, 42.89091],
     zoom: 10.92,
-    maxBounds: bounds
+    maxBounds: bounds,
+    hash: true
 });
+// light style: 'mapbox://styles/mapbox/light-v11',
+// satellite style: 'mapbox://styles/mapbox/satellite-v9',
 
 // add zoom buttons
 map.addControl(new mapboxgl.NavigationControl());
@@ -34,13 +37,13 @@ map.addControl(
 // add data on load
 map.on('load', () => {
 
-    // add a geojson source for the park boundaries
+    // add geojson layer for park boundaries
     map.addSource('bopc-parks', {
         type: 'geojson',
         data: 'data/bopc-parks.geojson'
     })
 
-    // add basic park layer
+    // add park fill layer
     map.addLayer({
         id: 'bopc-parks-fill',
         type: 'fill',
@@ -49,42 +52,80 @@ map.on('load', () => {
         layout: {},
         paint: {
             'fill-color': [
-                    'match',
-                    ['get', 'class'],
-                    'Major Park', '#b3e2cd',
-                    'Parkway', '#fdcdac',
-                    'Pocket Park', '#cbd5e8',
-                    'Circle', '#f4cae4',
-                    '#ccc' // other
-                ],
-            'fill-opacity': 1
+                'match',
+                ['get', 'class'],
+                'Major Park', '#b3e2cd',
+                'Parkway', '#fdcdac',
+                'Pocket Park', '#cbd5e8',
+                'Circle', '#f4cae4',
+                '#ccc' // other
+            ],
+            'fill-opacity': 0.1
         }
     })
 
-    // add an outline
+    // add park outline layer
     map.addLayer({
         'id': 'outline',
         'type': 'line',
         'source': 'bopc-parks',
         'layout': {},
         'paint': {
-            'line-color': '#000',
-            'line-width': 1
+            'line-color': [
+                'match',
+                ['get', 'class'],
+                'Major Park', '#b3e2cd',
+                'Parkway', '#fdcdac',
+                'Pocket Park', '#cbd5e8',
+                'Circle', '#f4cae4',
+                '#ccc' // other
+            ],
+            'line-width': 2
         }
     });
 
 });
 
-
-// from example in class:
-// should learn more about [match [_,_]]
-
-// 'fill-color': [
-//     'match',
-//     ['get', 'class'],
-//     'Major Park', '#b3e2cd',
-//     'Parkway', '#fdcdac',
-//     'Pocket Park', '#cbd5e8',
-//     'Circle', '#f4cae4',
-//     '#ccc' // other
-// ]
+// listen for clicks on specific parks to flyTo close view
+$('#delaware').on('click', function () {
+    map.flyTo({
+        center: [-78.86591, 42.93397],
+        zoom: 13.97,
+        duration: 1500
+    })
+});
+$('#mlk').on('click', function () {
+    map.flyTo({
+        center: [-78.84039, 42.90503],
+        zoom: 15.43,
+        duration: 1500
+    })
+});
+$('#cazenovia').on('click', function () {
+    map.flyTo({
+        center: [-78.80561, 42.84574],
+        zoom: 14.36,
+        duration: 1500
+    })
+});
+$('#south').on('click', function () {
+    map.flyTo({
+        center: [-78.82975, 42.82986],
+        zoom: 14.55,
+        duration: 1500
+    })
+});
+$('#riverside').on('click', function () {
+    map.flyTo({
+        center: [-78.90889, 42.95553],
+        zoom: 15.24,
+        duration: 1500
+    })
+});
+$('#front').on('click', function () {
+    map.flyTo({
+        center: [-78.89751, 42.90111],
+        zoom: 15.94,
+        duration: 1500
+    })
+});

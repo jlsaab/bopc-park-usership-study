@@ -1,3 +1,5 @@
+/* Website template from Chris Whong's `responsive-web-map-layout` */
+/* at https://github.com/chriswhong/responsive-web-map-layout */
 html,
 head,
 body,
@@ -49,10 +51,13 @@ nav {
 #sidebar {
     width: 300px;
     padding: 1rem;
-    font-size: 0.9rem;
-    /* overflow-y: scroll; */
-    /* removed overflow to get rid of scroll bar on right of sidebar */
+    font-size: .9rem;
+    overflow-y: scroll;     /* remove to get rid of scroll bar on right of sidebar */
     box-sizing: border-box;
+}
+
+.h1 {
+    font-weight: 600;
 }
 
 #map {
@@ -80,3 +85,47 @@ nav {
         width: 100%;
     }
 }
+
+/* Button template from CSS Scan's `Button 8` */
+/* at https://getcssscan.com/css-buttons-examples */
+
+.button {
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #39739d;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 4px 4px 4px 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .button:hover,
+  .button:focus {
+    background-color: #b3d3ea;
+    color: #2c5777;
+  }
+  
+  .button:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .button:active {
+    background-color: #a0c7e4;
+    box-shadow: none;
+    color: #2c5777;
+  }
