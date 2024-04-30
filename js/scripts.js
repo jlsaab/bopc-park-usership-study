@@ -9,12 +9,13 @@ const bounds = [
 // create the map
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
+    style: 'mapbox://styles/mapbox/streets-v12',
     center: [-78.88421, 42.89091],
     zoom: 10.92,
     maxBounds: bounds,
     hash: true
 });
+// streets style: 'mapbox://styles/mapbox/streets-v12'
 // light style: 'mapbox://styles/mapbox/light-v11',
 // satellite style: 'mapbox://styles/mapbox/satellite-v9',
 
@@ -42,7 +43,6 @@ map.on('load', () => {
         type: 'geojson',
         data: 'data/bopc-parks.geojson'
     })
-
     // add park fill layer
     map.addLayer({
         id: 'bopc-parks-fill',
@@ -63,10 +63,9 @@ map.on('load', () => {
             'fill-opacity': 0.3
         }
     })
-
     // add park outline layer
     map.addLayer({
-        'id': 'outline',
+        'id': 'bopc-parks-outline',
         'type': 'line',
         'source': 'bopc-parks',
         'layout': {},
@@ -76,9 +75,106 @@ map.on('load', () => {
         }
     });
 
+    // add geojson layer for zones
+    map.addSource('zones', {
+        type: 'geojson',
+        data: 'data/zones.geojson',
+    })
+    // add zone outline layer
+    map.addLayer({
+        'id': 'zones-outline',
+        'type': 'line',
+        'source': 'zones',
+        'layout': {
+            // Make the layer invisible by default.
+            'visibility': 'none'
+        },
+        'paint': {
+            'line-color': '#000000',
+            'line-width': 2
+        }
+    });
+
+    // add geojson layer for entry points
+    map.addSource('entry-points', {
+        type: 'geojson',
+        data: 'data/entry-points.geojson',
+    })
+    // add entry points circle layer
+    map.addLayer({
+        'id': 'entry-points-circles',
+        'type': 'circle',
+        'source': 'entry-points',
+        'layout': { 'visibility': 'none' },
+        'paint': { 'circle-radius': 8, 'circle-color': 'rgba(55,148,179,1)' }
+    });
+
+    // add geojson layer for scan routes
+    map.addSource('scan-routes', {
+        type: 'geojson',
+        data: 'data/scan-routes.geojson',
+    })
+    // add scan routes line layer
+    map.addLayer({
+        'id': 'scan-routes-lines',
+        'type': 'line',
+        'source': 'scan-routes',
+        'layout': {
+            'visibility': 'none' 
+        },
+        'paint': {
+            'line-color': '#888',
+            'line-width': 3,
+            'line-dasharray': [0, 2, 4]
+        }
+    });
 });
 
-// listen for clicks on specific parks to flyTo close view
+
+// Add toggle-able buttons for zones, entry points, and scan routes with this code from class
+
+// zones toggle button functionality
+let zonesVisible = false
+// when the toggle button is clicked, check zonesVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
+$('#zones-toggle').on('click', function () {
+
+    // by default we will set the layers to visible
+    let value = 'visible'
+
+    // if the layers are already visible, set their visibility to 'none'
+    if (zonesVisible === true) {
+        value = 'none'
+    }
+
+    // use setLayoutProperty to apply the visibility (either 'visible' or 'none' depending on the logic above)
+    map.setLayoutProperty('zones-outline', 'visibility', value)
+
+    // flip the value in zonesVisible to reflect the new state. (if true, it becomes false, if false it becomes true)
+    zonesVisible = !zonesVisible
+})
+
+// entry points toggle button functionality
+let entrypointsVisible = false
+$('#entry-points-toggle').on('click', function () {
+    let value = 'visible'
+    if (entrypointsVisible === true) {
+        value = 'none'
+    }
+    map.setLayoutProperty('entry-points-circles', 'visibility', value)
+    entrypointsVisible = !entrypointsVisible
+})
+
+// scan routes toggle button functionality
+let scanroutesVisible = false
+$('#scan-routes-toggle').on('click', function () {
+    let value = 'visible'
+    if (scanroutesVisible === true) { value = 'none' }
+    map.setLayoutProperty('scan-routes-lines', 'visibility', value)
+    scanroutesVisible = !scanroutesVisible
+})
+
+
+// listen for clicks on specific parks to flyTo close-up view
 $('#delaware').on('click', function () {
     map.flyTo({
         center: [-78.86591, 42.93397],
@@ -212,3 +308,16 @@ $('#symphony').on('click', function () {
         duration: 1500
     })
 });
+$('#home').on('click', function () {
+    map.flyTo({
+        center: [-78.88421, 42.89091],
+        zoom: 10.92,
+        duration: 1500
+    })
+});
+
+map.on('render', () => {
+    console.log('Zones layer here occurred.');
+});
+
+
