@@ -120,10 +120,10 @@ map.on('load', () => {
         'type': 'line',
         'source': 'scan-routes',
         'layout': {
-            'visibility': 'none' 
+            'visibility': 'none'
         },
         'paint': {
-            'line-color': '#888',
+            'line-color': 'orange',
             'line-width': 3,
             'line-dasharray': [0, 2, 4]
         }
