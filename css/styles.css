@@ -7,7 +7,7 @@ body,
     height: 100%;
     width: 100%;
     font-family: Galvji;
-    background-color: #38761D;
+    background-color: #234b13;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 
 nav {
     padding: 1rem;
-    border-bottom: 1px solid #595959;
+    border-bottom: 3px solid #595959;
     display: flex;
 }
 
@@ -48,6 +48,7 @@ nav {
     display: flex;
     min-height: 0;
     background-color: #F3F3F3;
+    color: #565656;
 }
 
 #sidebar {
@@ -121,23 +122,23 @@ nav {
   
   .button:hover,
   .button:focus {
-    background-color: #b3d3ea;
+    background-color: #b3eab5;
     /* button color when cursor on top ^ */
-    color: #2c5777;
+    color: #2c7734;
     /* font color when cursor on top ^ */
   }
   
   .button:focus {
-    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+    box-shadow: 0 0 0 4px rgba(0, 255, 42, 0.15);
     /* highlight color when selected ^ */
   }
   
   /* state when clicked */
   .button:active {
-    background-color: #a0c7e4;
+    background-color: #a0e4a3;
     /* button color ^ */
     box-shadow: none;
-    color: #2c5777; 
+    color: #2c7749; 
     /* font color ^ */
   }
 
@@ -158,4 +159,29 @@ nav {
 .i1 {color: #38761D} /* Major Park */
 .i2 {color: #4EAE43} /* Parkway */
 .i3 {color: #0197A6} /* Pocket Park */
-.i4 {color: #B1621E} /* Circle */
+.i4 {color: #B1621E} /* Circles */
+.i5 {color: #000000} /* Zones */
+.i6 {color: #eeff41} /* Scan Routes */
+.i7 {
+    color: #B1621E;
+    width: .9rem;
+    height: .9rem;
+    border-radius: 100px
+} /* Entry Points */
+
+/* 
+.legend-items {
+    font-size: .8rem;
+} */
+
+/* adding a tool bar that switches map background */
+/* #menu {
+    position: absolute;
+    border-radius: 12px;
+    font-size: 12px;
+    background: #565656;
+    color: #F3F3F3;
+    padding: 10px;
+    left: 10px;
+    margin-top: 16px;
+} */

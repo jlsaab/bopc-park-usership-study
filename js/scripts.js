@@ -19,6 +19,18 @@ const map = new mapboxgl.Map({
 // light style: 'mapbox://styles/mapbox/light-v11',
 // satellite style: 'mapbox://styles/mapbox/satellite-v9',
 
+// adding functionality to layer menu
+// const layerList = document.getElementById('menu');
+// const inputs = layerList.getElementsByTagName('input');
+
+// for (const input of inputs) {
+//     input.onclick = (layer) => {
+//         const layerId = layer.target.id;
+//         map.setStyle('mapbox://styles/mapbox/' + layerId);
+//     }
+// };
+
+
 // add zoom buttons
 map.addControl(new mapboxgl.NavigationControl());
 
@@ -107,42 +119,6 @@ map.on('load', () => {
             }
         });
 
-    // ENTRY POINTS
-        // add geojson source
-        map.addSource('entry-points', {
-            type: 'geojson',
-            data: 'data/entry-points.geojson',
-        })
-        // add circle layer
-        map.addLayer({
-            'id': 'entry-points-circles',
-            'type': 'circle',
-            'source': 'entry-points',
-            'layout': { 'visibility': 'none' },
-            'paint': { 
-                'circle-radius': 8, 
-                'circle-color': 'rgba(255,200,255,0.8)' 
-            }
-        });
-        // add labels
-        map.addLayer({
-            'id': 'entry-points-labels',
-            'type': 'symbol',
-            'source': 'entry-points',
-            'minzoom': zoomThreshold,
-            'layout': {
-                'text-field': ['get', 'entry-point-id'],
-                'visibility': 'none',
-                'text-justify': 'auto',
-                'text-size': 16
-            },
-            'paint': {
-                'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
-                'text-halo-width': 2
-            }
-        });
-
     // SCAN ROUTES
         // add geojson source
         map.addSource('scan-routes', {
@@ -154,7 +130,7 @@ map.on('load', () => {
             'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
-            'layout': {'visibility': 'none'},
+            'layout': { 'visibility': 'none' },
             'paint': {
                 'line-color': '#eeff41',
                 'line-width': 3,
@@ -172,6 +148,53 @@ map.on('load', () => {
                 'visibility': 'none',
                 'text-justify': 'auto',
                 'text-size': 16
+            },
+            'paint': {
+                'text-color': '#F3F3F3',
+                'text-halo-color': '#565656',
+                'text-halo-width': 2
+            }
+        });
+
+    // ENTRY POINTS
+        // add geojson source
+        map.addSource('entry-points', {
+            type: 'geojson',
+            data: 'data/entry-points.geojson',
+        })
+        // add circle layer
+        map.addLayer({
+            'id': 'entry-points-circles',
+            'type': 'circle',
+            'source': 'entry-points',
+            'layout': { 'visibility': 'none' },
+            'paint': {
+                'circle-radius': 7,
+                'circle-color': [
+                    'match',
+                    ['get', 'category'],
+                    'Pedestrian Count', '#B1621E',
+                    'All Count', '#4EAE43',
+                    'Car Count', '#f3f300',
+                    '#ccc' // other
+                ],
+                'circle-opacity': 0.7,
+                'circle-stroke-color': '#565656',
+                'circle-stroke-width': 1
+            }
+        });
+        // add labels
+        map.addLayer({
+            'id': 'entry-points-labels',
+            'type': 'symbol',
+            'source': 'entry-points',
+            'minzoom': zoomThreshold,
+            'layout': {
+                'text-field': ['get', 'id'],
+                'visibility': 'none',
+                'text-justify': 'auto',
+                'text-size': 16,
+                'text-offset': [0,-1.5]
             },
             'paint': {
                 'text-color': '#F3F3F3',
@@ -209,7 +232,7 @@ $('#zones-toggle').on('click', function () {
 let entrypointsVisible = false
 $('#entry-points-toggle').on('click', function () {
     let value = 'visible'
-    if (entrypointsVisible === true) {value = 'none'}
+    if (entrypointsVisible === true) { value = 'none' }
     map.setLayoutProperty('entry-points-circles', 'visibility', value)
     map.setLayoutProperty('entry-points-labels', 'visibility', value)
     entrypointsVisible = !entrypointsVisible
@@ -227,145 +250,145 @@ $('#scan-routes-toggle').on('click', function () {
 
 // FLY TO PARKS 
 // listen for clicks on specific parks to flyTo close-up view
-    $('#delaware').on('click', function () {
-        map.flyTo({
-            center: [-78.86591, 42.93397],
-            zoom: 13.97,
-            duration: 1500
-        })
-    });
-    $('#mlk').on('click', function () {
-        map.flyTo({
-            center: [-78.84039, 42.90503],
-            zoom: 15.43,
-            duration: 1500
-        })
-    });
-    $('#cazenovia').on('click', function () {
-        map.flyTo({
-            center: [-78.80561, 42.84574],
-            zoom: 14.36,
-            duration: 1500
-        })
-    });
-    $('#south').on('click', function () {
-        map.flyTo({
-            center: [-78.82975, 42.82986],
-            zoom: 14.55,
-            duration: 1500
-        })
-    });
-    $('#riverside').on('click', function () {
-        map.flyTo({
-            center: [-78.90889, 42.95553],
-            zoom: 15.24,
-            duration: 1500
-        })
-    });
-    $('#front').on('click', function () {
-        map.flyTo({
-            center: [-78.89751, 42.90111],
-            zoom: 15.94,
-            duration: 1500
-        })
-    });
-    $('#days').on('click', function () {
-        map.flyTo({
-            center: [-78.881104, 42.89878],
-            zoom: 16.94,
-            duration: 1500
-        })
-    });
-    $('#heacock').on('click', function () {
-        map.flyTo({
-            center: [-78.822823, 42.855157],
-            zoom: 16.56,
-            duration: 1500
-        })
-    });
-    $('#prospect').on('click', function () {
-        map.flyTo({
-            center: [-78.893033, 42.902109],
-            zoom: 16.13,
-            duration: 1500
-        })
-    });
-    $('#bidwell').on('click', function () {
-        map.flyTo({
-            center: [-78.877639, 42.922888],
-            zoom: 15.24,
-            duration: 1500
-        })
-    });
-    $('#chapin').on('click', function () {
-        map.flyTo({
-            center: [-78.870472, 42.922926],
-            zoom: 15.24,
-            duration: 1500
-        })
-    });
-    $('#lincoln').on('click', function () {
-        map.flyTo({
-            center: [-78.873794, 42.928819],
-            zoom: 15.24,
-            duration: 1500
-        })
-    });
-    $('#colonial').on('click', function () {
-        map.flyTo({
-            center: [-78.88217, 42.92039],
-            zoom: 17.17,
-            duration: 1500
-        })
-    });
-    $('#ferry').on('click', function () {
-        map.flyTo({
-            center: [-78.882129, 42.915496],
-            zoom: 17.27,
-            duration: 1500
-        })
-    });
-    $('#gates').on('click', function () {
-        map.flyTo({
-            center: [-78.86781, 42.92054],
-            zoom: 17.17,
-            duration: 1500
-        })
-    });
-    $('#mcclellan').on('click', function () {
-        map.flyTo({
-            center: [-78.81500, 42.84438],
-            zoom: 17.17,
-            duration: 1500
-        })
-    });
-    $('#mckinley').on('click', function () {
-        map.flyTo({
-            center: [-78.81523, 42.83201],
-            zoom: 17.17,
-            duration: 1500
-        })
-    });
-    $('#soldiers').on('click', function () {
-        map.flyTo({
-            center: [-78.87376, 42.92569],
-            zoom: 16.79,
-            duration: 1500
-        })
-    });
-    $('#symphony').on('click', function () {
-        map.flyTo({
-            center: [-78.88183, 42.90239],
-            zoom: 17.24,
-            duration: 1500
-        })
-    });
-    $('#home').on('click', function () {
-        map.flyTo({
-            center: [-78.88421, 42.89091],
-            zoom: 10.92,
-            duration: 1500
-        })
-    });
+$('#delaware').on('click', function () {
+    map.flyTo({
+        center: [-78.86591, 42.93397],
+        zoom: 13.97,
+        duration: 1500
+    })
+});
+$('#mlk').on('click', function () {
+    map.flyTo({
+        center: [-78.84039, 42.90503],
+        zoom: 15.43,
+        duration: 1500
+    })
+});
+$('#cazenovia').on('click', function () {
+    map.flyTo({
+        center: [-78.80561, 42.84574],
+        zoom: 14.36,
+        duration: 1500
+    })
+});
+$('#south').on('click', function () {
+    map.flyTo({
+        center: [-78.82975, 42.82986],
+        zoom: 14.55,
+        duration: 1500
+    })
+});
+$('#riverside').on('click', function () {
+    map.flyTo({
+        center: [-78.90889, 42.95553],
+        zoom: 15.24,
+        duration: 1500
+    })
+});
+$('#front').on('click', function () {
+    map.flyTo({
+        center: [-78.89751, 42.90111],
+        zoom: 15.94,
+        duration: 1500
+    })
+});
+$('#days').on('click', function () {
+    map.flyTo({
+        center: [-78.881104, 42.89878],
+        zoom: 16.94,
+        duration: 1500
+    })
+});
+$('#heacock').on('click', function () {
+    map.flyTo({
+        center: [-78.822823, 42.855157],
+        zoom: 16.56,
+        duration: 1500
+    })
+});
+$('#prospect').on('click', function () {
+    map.flyTo({
+        center: [-78.893033, 42.902109],
+        zoom: 16.13,
+        duration: 1500
+    })
+});
+$('#bidwell').on('click', function () {
+    map.flyTo({
+        center: [-78.877639, 42.922888],
+        zoom: 15.24,
+        duration: 1500
+    })
+});
+$('#chapin').on('click', function () {
+    map.flyTo({
+        center: [-78.870472, 42.922926],
+        zoom: 15.24,
+        duration: 1500
+    })
+});
+$('#lincoln').on('click', function () {
+    map.flyTo({
+        center: [-78.873794, 42.928819],
+        zoom: 15.24,
+        duration: 1500
+    })
+});
+$('#colonial').on('click', function () {
+    map.flyTo({
+        center: [-78.88217, 42.92039],
+        zoom: 17.17,
+        duration: 1500
+    })
+});
+$('#ferry').on('click', function () {
+    map.flyTo({
+        center: [-78.882129, 42.915496],
+        zoom: 17.27,
+        duration: 1500
+    })
+});
+$('#gates').on('click', function () {
+    map.flyTo({
+        center: [-78.86781, 42.92054],
+        zoom: 17.17,
+        duration: 1500
+    })
+});
+$('#mcclellan').on('click', function () {
+    map.flyTo({
+        center: [-78.81500, 42.84438],
+        zoom: 17.17,
+        duration: 1500
+    })
+});
+$('#mckinley').on('click', function () {
+    map.flyTo({
+        center: [-78.81523, 42.83201],
+        zoom: 17.17,
+        duration: 1500
+    })
+});
+$('#soldiers').on('click', function () {
+    map.flyTo({
+        center: [-78.87376, 42.92569],
+        zoom: 16.79,
+        duration: 1500
+    })
+});
+$('#symphony').on('click', function () {
+    map.flyTo({
+        center: [-78.88183, 42.90239],
+        zoom: 17.24,
+        duration: 1500
+    })
+});
+$('#home').on('click', function () {
+    map.flyTo({
+        center: [-78.88421, 42.89091],
+        zoom: 10.92,
+        duration: 1500
+    })
+});
 
 
