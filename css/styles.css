@@ -7,6 +7,7 @@ body,
     height: 100%;
     width: 100%;
     font-family: Galvji;
+    background-color: #38761D;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 
 nav {
     padding: 1rem;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #595959;
     display: flex;
 }
 
@@ -35,17 +36,18 @@ nav {
 .nav-link {
     display: inline-block;
     font-size: .9rem;
-    color: black;
+    color: #F3F3F3;
 }
 
 .nav-link:hover {
-    color: chartreuse;
+    color: #EEFF41;
 }
 
 #content-container {
     flex-grow: 1;
     display: flex;
     min-height: 0;
+    background-color: #F3F3F3;
 }
 
 #sidebar {
@@ -68,7 +70,7 @@ nav {
 .title {
     font-weight: 600;
     font-size: larger;
-    color:darkgreen;
+    color: #f3f3f3;
 }
 
 @media only screen and (max-width: 800px) {
@@ -138,3 +140,22 @@ nav {
     color: #2c5777; 
     /* font color ^ */
   }
+
+  /* circle symbol for sidebar from CSS.gg */
+  /* at https://css.gg/shape-circle */
+  .gg-shape-circle {
+    box-sizing: border-box;
+    position: relative;
+    /* display: inline-block; */
+    display:inline-flex;
+    transform: scale(var(--ggs,1));
+    width: 1.9rem;
+    height: .9rem;
+    border: 3px solid;
+    border-radius: 6px
+}
+
+.i1 {color: #38761D} /* Major Park */
+.i2 {color: #4EAE43} /* Parkway */
+.i3 {color: #0197A6} /* Pocket Park */
+.i4 {color: #B1621E} /* Circle */
