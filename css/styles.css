@@ -161,13 +161,16 @@ nav {
 .i3 {color: #0197A6} /* Pocket Park */
 .i4 {color: #B1621E} /* Circles */
 .i5 {color: #000000} /* Zones */
-.i6 {color: #eeff41} /* Scan Routes */
-.i7 {
-    color: #B1621E;
+.i6 {color: #eeff41;
+    background-color: #eeff41;
     width: .9rem;
     height: .9rem;
-    border-radius: 100px
-} /* Entry Points */
+    border-radius: 100px} /* Scan Routes */
+.i7 {color: #B1621E;
+    background-color: #B1621E;
+    width: .9rem;
+    height: .9rem;
+    border-radius: 100px} /* Entry Points */
 
 /* 
 .legend-items {
