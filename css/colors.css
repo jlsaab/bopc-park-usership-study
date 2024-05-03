@@ -1,23 +1,52 @@
 /* Colors for symbols and layers */
 
-.i1 {color: #38761D} /* Major Park */
-.i2 {color: #4EAE43} /* Parkway */
-.i3 {color: #0197A6} /* Pocket Park */
-.i4 {color: #B1621E} /* Circles */
-.i5 {color: #000000} /* Zones */
-.i6 {color: #eeff41; background-color: #eeff41; width: .9rem; height: .9rem; border-radius: 100px} /* Scan Routes */
-.i7 {color: #B1621E; background-color: #B1621E; width: .9rem; height: .9rem; border-radius: 100px} /* Entry Points */
-
-
-/* circle symbol for sidebar from CSS.gg at https://css.gg/shape-circle */
-.gg-shape-circle {
+/* oval shape adapted from https://css.gg/shape-circle */
+.gg-shape-oval {
     box-sizing: border-box;
     position: relative;
     /* display: inline-block; */
     display:inline-flex;
     transform: scale(var(--ggs,1));
-    width: 1.9rem;
+    width: 1.6rem;
     height: .9rem;
-    border: 3px solid;
+    border: 2px solid;
     border-radius: 6px
 }
+
+/* circle shape from https://css.gg/shape-circle */
+.gg-shape-circle {
+box-sizing: border-box;
+position: relative;
+/* display: inline-block; */
+display:inline-flex;
+transform: scale(var(--ggs,1));
+width: .9rem;
+height: .9rem;
+border: 3px solid;
+border-radius: 6px
+}
+
+.i1 {color: #38761D} /* Major Park */
+.i2 {color: #4EAE43} /* Parkway */
+.i3 {color: #0197A6} /* Pocket Park */
+.i4 {color: #B1621E} /* Circles */
+.i5 {color: #000000} /* Zones */
+.i6 {
+    color: #000000; 
+    background-color: #eeff41; 
+    width: .9rem; 
+    height: .9rem; 
+    border-color: #eeff41;
+    border: 1px dashed;
+    border-radius: 100px
+} /* Scan Routes */
+
+.i7 {color: #0198a6c1; 
+    background-color: #0198a6c1; 
+    border-color: #000000;
+    border-width: 1px;
+    width: .9rem; 
+    height: .9rem; 
+    border-radius: 100px} /* Entry Points */
+
+

@@ -12,10 +12,10 @@ const bounds = [
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/satellite-v9',
-    center: [-78.88421, 42.89091],
-    zoom: 10.92,
+    center: [-78.86166, 42.9204],
+    zoom: 12.61,
     maxBounds: bounds,
-    hash: true
+    // hash: true
 });
 
 // styles for reference
