@@ -15,4 +15,6 @@ Website live here: <a href="https://jlsaab.github.io/bopc-park-usership-study/" 
 
 <img >
 
+![alt text](map-sample-full.png "Full Map")
+![alt text](map-sample-detail.png "Detail Map")
 
