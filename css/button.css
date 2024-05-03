@@ -1,0 +1,43 @@
+/* Button template from CSS Scan's `Button 8` at https://getcssscan.com/css-buttons-examples */
+
+.button {
+    background-color: #f0f0f0; /* button color */
+    border-radius: 3px;
+    border: 1px solid #9d9d9d;
+    box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset; /* small line of shadow at top of box */
+    box-sizing: border-box;
+    color: #626262; /* text color */
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 4px 4px 4px 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .button:hover,
+  .button:focus {
+    background-color: #b3eab5; /* button color when cursor on top ^ */
+    color: #2c7734; /* font color when cursor on top ^ */
+  }
+  
+  .button:focus {
+    box-shadow: 0 0 0 4px rgba(0, 255, 42, 0.15); /* highlight color when selected ^ */
+  }
+  
+  /* state when clicked */
+  .button:active {
+    background-color: #a0e4a3; /* button color ^ */
+    box-shadow: none;
+    color: #2c7749; /* font color ^ */
+  }

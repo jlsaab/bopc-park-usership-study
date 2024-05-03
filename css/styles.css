@@ -1,9 +1,6 @@
-/* Website template from Chris Whong's `responsive-web-map-layout` */
-/* at https://github.com/chriswhong/responsive-web-map-layout */
-html,
-head,
-body,
-#main-container {
+/* Website template from Chris Whong's `responsive-web-map-layout` at https://github.com/chriswhong/responsive-web-map-layout */
+
+html, head, body, #main-container {
     height: 100%;
     width: 100%;
     font-family: Galvji;
@@ -21,6 +18,8 @@ body {
     overflow: hidden;
 }
 
+
+/* menu bar styling */
 nav {
     padding: 1rem;
     border-bottom: 3px solid #595959;
@@ -35,7 +34,7 @@ nav {
 
 .nav-link {
     display: inline-block;
-    font-size: .9rem;
+    font-size: .7rem;
     color: #F3F3F3;
 }
 
@@ -52,26 +51,45 @@ nav {
 }
 
 #sidebar {
-    width: 300px;
+    width: 310px;
     padding: 1rem;
     font-size: .9rem;
     overflow-y: scroll;     /* remove to get rid of scroll bar on right of sidebar */
     box-sizing: border-box;
 }
 
-.h1 {
-    font-weight: 600;
-}
-
+/* map container */
 #map {
     height: 100%;
     flex-grow: 1;
 }
 
+/* text formatting */
 .title {
     font-weight: 600;
-    font-size: larger;
+    font-size: 1.3rem;
     color: #f3f3f3;
+}
+.h1 {
+    font-weight: 600;
+}
+
+/* call to action highlight */
+.cta {
+    background-color: #b3eab5;
+    line-height: 1.15385;
+    margin: 4px 4px 4px 0;
+    outline: none;
+    padding: 8px .8em;
+    border-radius: 3px;
+}
+
+/* regular link styling */
+.link {
+    color: #234b13;
+}
+.link:hover {
+    color: #565656;
 }
 
 @media only screen and (max-width: 800px) {
@@ -88,116 +106,3 @@ nav {
         width: 100%;
     }
 }
-
-/* Button template from CSS Scan's `Button 8` */
-/* at https://getcssscan.com/css-buttons-examples */
-
-.button {
-    background-color: #f0f0f0;
-    /* button color */
-    border-radius: 3px;
-    border: 1px solid #9d9d9d;
-    box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
-    /* small line of shadow at top of box */
-    box-sizing: border-box;
-    color: #626262;
-    /* text color */
-    cursor: pointer;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.15385;
-    margin: 4px 4px 4px 0;
-    outline: none;
-    padding: 8px .8em;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: baseline;
-    white-space: nowrap;
-  }
-  
-  .button:hover,
-  .button:focus {
-    background-color: #b3eab5;
-    /* button color when cursor on top ^ */
-    color: #2c7734;
-    /* font color when cursor on top ^ */
-  }
-  
-  .button:focus {
-    box-shadow: 0 0 0 4px rgba(0, 255, 42, 0.15);
-    /* highlight color when selected ^ */
-  }
-  
-  /* state when clicked */
-  .button:active {
-    background-color: #a0e4a3;
-    /* button color ^ */
-    box-shadow: none;
-    color: #2c7749; 
-    /* font color ^ */
-  }
-
-/* circle symbol for sidebar from CSS.gg */
-/* at https://css.gg/shape-circle */
-.gg-shape-circle {
-    box-sizing: border-box;
-    position: relative;
-    /* display: inline-block; */
-    display:inline-flex;
-    transform: scale(var(--ggs,1));
-    width: 1.9rem;
-    height: .9rem;
-    border: 3px solid;
-    border-radius: 6px
-}
-
-.i1 {color: #38761D} /* Major Park */
-.i2 {color: #4EAE43} /* Parkway */
-.i3 {color: #0197A6} /* Pocket Park */
-.i4 {color: #B1621E} /* Circles */
-.i5 {color: #000000} /* Zones */
-.i6 {color: #eeff41;
-    background-color: #eeff41;
-    width: .9rem;
-    height: .9rem;
-    border-radius: 100px} /* Scan Routes */
-.i7 {color: #B1621E;
-    background-color: #B1621E;
-    width: .9rem;
-    height: .9rem;
-    border-radius: 100px} /* Entry Points */
-
-/* Collabsible box for the menu */
-/* from https://www.w3schools.com/howto/howto_js_collapsible.asp */
-
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-    background-color: #F3F3F3;
-    color: #565656;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .collapsible:hover {
-    background-color: #c4c4c4;
-  }
-  
-  /* Style the collapsible content. Note: hidden by default */
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #F3F3F3;
-  }
-  

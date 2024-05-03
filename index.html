@@ -3,34 +3,55 @@
 
 <head>
     <meta charset="utf-8">
+    
+    <!-- website title -->
     <title>BOPC Park Usership Study Map</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <!-- adding all css files -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/button.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
+    <link href="css/menu-box.css" rel="stylesheet">
+
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+
 </head>
 
 <body>
     <div id="main-container">
         <nav>
             <div class="title">BOPC Park Usership Study Map</div>
+            
+            <!-- Menu bar links -->
             <div class="nav-links">
                 <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>&nbsp;&nbsp;
-                <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">Source Code</a>
+                <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">Source
+                    Code</a>
             </div>
 
         </nav>
         <div id="content-container">
+            
+            <!-- Sidebar content -->
             <div id="sidebar">
-                <p><b>How many people use Buffalo's Olmsted Parks every year?</b><br><br>
-                    BOPC, the <a href="https://www.bfloparks.org/" targe="_blank">Buffalo Olmsted Parks Conservancy</a>, tasked an NYU Wagner Capstone team with designing a comprehensive park usership 
-                    method. This map contains the recommended observation points and routes to be studied over four seasons to get an accurate estimate of total annual usership.
-                    <br><br> 
-                    Zoom to all 19 parks within the study and toggle their layers off and on!</p>
+
+                <!-- introduction text -->
+                <p class="h1">How many people use Buffalo's Olmsted Parks every year?</p>
+                <p>
+                    The <a class="link" href="https://www.bfloparks.org/" target="_blank">Buffalo Olmsted Parks Conservancy</a>
+                    tasked an NYU Wagner Capstone team with designing a comprehensive park usership
+                    method. This map shows the recommended observation points and routes to be studied over four
+                    seasons to get an accurate estimate of total annual usership.
+                </p>
+
+                <!-- user instructions -->
+                <p class="cta">Zoom to each park and toggle the study layers off and on!</p>
+
+                <!-- sections for zoom-to buttons -->
                 <p class="h1">Zoom to Each Park</p>
-                <button type="button" class="collapsible">
-                    Major Parks&nbsp;<i class="i1 gg-shape-circle"></i>
-                </button>
+                <button type="button" class="collapsible">Major Parks&nbsp;<i class="i1 gg-shape-circle"></i></button>
                 <div class="content">
                     <p>
                         <button id="delaware" class="button" role="button">Delaware Park</button>
@@ -41,9 +62,7 @@
                         <button id="front" class="button" role="button">Front Park</button>
                     </p>
                 </div>
-                <button type="button" class="collapsible">
-                    Pocket Parks&nbsp;<i class="i3 gg-shape-circle"></i>
-                </button>
+                <button type="button" class="collapsible">Pocket Parks&nbsp;<i class="i3 gg-shape-circle"></i></button>
                 <div class="content">
                     <p>
                         <button id="days" class="button" role="button">Days Park</button>
@@ -51,9 +70,7 @@
                         <button id="prospect" class="button" role="button">Prospect Park</button>
                     </p>
                 </div>
-                <button type="button" class="collapsible">
-                    Parkways&nbsp;<i class="i2 gg-shape-circle"></i>
-                </button>
+                <button type="button" class="collapsible">Parkways&nbsp;<i class="i2 gg-shape-circle"></i></button>
                 <div class="content">
                     <p>
                         <button id="bidwell" class="button" role="button">Bidwell Parkway</button>
@@ -61,9 +78,7 @@
                         <button id="lincoln" class="button" role="button">Lincoln Parkway</button>
                     </p>
                 </div>
-                <button type="button" class="collapsible">
-                    Circles&nbsp;<i class="i4 gg-shape-circle"></i>
-                </button>
+                <button type="button" class="collapsible">Circles&nbsp;<i class="i4 gg-shape-circle"></i></button>
                 <div class="content">
                     <p>
                         <button id="colonial" class="button" role="button">Colonial Circle</button>
@@ -75,42 +90,34 @@
                         <button id="symphony" class="button" role="button">Symphony Circle</button>
                     </p>
                 </div>
+                
+                <!-- section for all study layer buttons -->
                 <p class="h1">Toggle Study Layers </p>
-                    <p>
-                        <button id="zones-toggle" class="button" role="button">
-                            Zones
-                        </button>
-                        <button id="scan-routes-toggle" class="button" role="button">
-                            Activity Scan Routes
-                        </button>
-                        <button id="entry-points-toggle" class="button" role="button">
-                            Entry Count Points
-                        </button>
-                    </p>
+                <p>
+                    <button id="scan-routes-zones-toggle" class="button" role="button">
+                        Scan Routes and Zones
+                    </button>
+                    <button id="entry-points-toggle" class="button" role="button">
+                        Entry Count Points
+                    </button>
+                </p>
+
+                <!-- section for map controls -->
                 <p class="h1">Reset Map</p>
                 <button id="home" class="button" role="button">Full View</button>
                 <p><br><br><br><br><br></p>
             </div>
-            <div id="map">
-                <!-- <div id="menu">
-                    <input id="satellite-streets-v12" type="radio" name="rtoggle" value="satellite" checked="checked"
-                        cursor="pointer">
-                    <label for="satellite-streets-v12">satellite streets</label>
-                    <input id="dark-v11" type="radio" name="rtoggle" value="dark">
-                    <label for="dark-v11">dark</label>
-                    <input id="streets-v12" type="radio" name="rtoggle" value="streets">
-                    <label for="streets-v12">streets</label>
-                    <input id="outdoors-v12" type="radio" name="rtoggle" value="outdoors">
-                    <label for="outdoors-v12">outdoors</label>
-                </div> -->
-            </div>
-            <!-- background layer menu -->
+            <div id="map"></div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!-- Adding all javascript code files -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/menu-box.js"></script>
+    <script src="js/data-layers.js"></script>
+    <script src="js/toggle-layers.js"></script>
+    <script src="js/flyto-parks.js"></script>
 
 </body>
 
