@@ -19,17 +19,6 @@ const map = new mapboxgl.Map({
 // light style: 'mapbox://styles/mapbox/light-v11',
 // satellite style: 'mapbox://styles/mapbox/satellite-v9',
 
-// adding functionality to layer menu
-// const layerList = document.getElementById('menu');
-// const inputs = layerList.getElementsByTagName('input');
-
-// for (const input of inputs) {
-//     input.onclick = (layer) => {
-//         const layerId = layer.target.id;
-//         map.setStyle('mapbox://styles/mapbox/' + layerId);
-//     }
-// };
-
 
 // add zoom buttons
 map.addControl(new mapboxgl.NavigationControl());
@@ -47,8 +36,26 @@ map.addControl(
     })
 );
 
+// add function to the collapsible box
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+
 // add a zoom threshold that won't show labels at too far a scale
 const zoomThreshold = 13;
+
 
 // add data on load
 map.on('load', () => {
@@ -91,13 +98,12 @@ map.on('load', () => {
             'id': 'zones-outline',
             'type': 'line',
             'source': 'zones',
-            'layout': {
-                // Make the layer invisible by default.
-                'visibility': 'none'
-            },
+            'layout': {},
             'paint': {
                 'line-color': '#000000',
-                'line-width': 4
+                'line-width': {
+                    stops: [[12, 1], [13, 2], [16, 4]]
+                },
             }
         });
         // add labels
@@ -108,7 +114,6 @@ map.on('load', () => {
             'minzoom': zoomThreshold,
             'layout': {
                 'text-field': ['get', 'zone-id'],
-                'visibility': 'none',
                 'text-justify': 'auto',
                 'text-size': 24,
             },
@@ -130,29 +135,13 @@ map.on('load', () => {
             'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
-            'layout': { 'visibility': 'none' },
+            'layout': {},
             'paint': {
                 'line-color': '#eeff41',
-                'line-width': 3,
+                'line-width': {
+                    stops: [[12, 1], [13, 2], [14, 4], [16, 6]]
+                },
                 'line-dasharray': [0, 2, 4]
-            }
-        });
-        // add labels
-        map.addLayer({
-            'id': 'routes-labels',
-            'type': 'symbol',
-            'source': 'scan-routes',
-            'minzoom': zoomThreshold,
-            'layout': {
-                'text-field': ['get', 'route-id'],
-                'visibility': 'none',
-                'text-justify': 'auto',
-                'text-size': 16
-            },
-            'paint': {
-                'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
-                'text-halo-width': 2
             }
         });
 
@@ -167,18 +156,13 @@ map.on('load', () => {
             'id': 'entry-points-circles',
             'type': 'circle',
             'source': 'entry-points',
-            'layout': { 'visibility': 'none' },
+            'layout': {},
             'paint': {
-                'circle-radius': 7,
-                'circle-color': [
-                    'match',
-                    ['get', 'category'],
-                    'Pedestrian Count', '#B1621E',
-                    'All Count', '#4EAE43',
-                    'Car Count', '#f3f300',
-                    '#ccc' // other
-                ],
-                'circle-opacity': 0.7,
+                'circle-radius': {
+                    stops: [[12, 1], [13, 2], [14, 6], [15, 8], [16, 12]]
+                },
+                'circle-color': '#ffffff',
+                'circle-opacity': 0.6,
                 'circle-stroke-color': '#565656',
                 'circle-stroke-width': 1
             }
@@ -191,7 +175,6 @@ map.on('load', () => {
             'minzoom': zoomThreshold,
             'layout': {
                 'text-field': ['get', 'id'],
-                'visibility': 'none',
                 'text-justify': 'auto',
                 'text-size': 16,
                 'text-offset': [0,-1.5]

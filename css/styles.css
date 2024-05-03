@@ -142,9 +142,9 @@ nav {
     /* font color ^ */
   }
 
-  /* circle symbol for sidebar from CSS.gg */
-  /* at https://css.gg/shape-circle */
-  .gg-shape-circle {
+/* circle symbol for sidebar from CSS.gg */
+/* at https://css.gg/shape-circle */
+.gg-shape-circle {
     box-sizing: border-box;
     position: relative;
     /* display: inline-block; */
@@ -172,19 +172,32 @@ nav {
     height: .9rem;
     border-radius: 100px} /* Entry Points */
 
-/* 
-.legend-items {
-    font-size: .8rem;
-} */
+/* Collabsible box for the menu */
+/* from https://www.w3schools.com/howto/howto_js_collapsible.asp */
 
-/* adding a tool bar that switches map background */
-/* #menu {
-    position: absolute;
-    border-radius: 12px;
-    font-size: 12px;
-    background: #565656;
-    color: #F3F3F3;
-    padding: 10px;
-    left: 10px;
-    margin-top: 16px;
-} */
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #F3F3F3;
+    color: #565656;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #c4c4c4;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+  }
+  

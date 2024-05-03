@@ -15,68 +15,78 @@
         <nav>
             <div class="title">BOPC Park Usership Study Map</div>
             <div class="nav-links">
-                <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">About this map</a>
-                &nbsp;
-                <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>
+                <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>&nbsp;&nbsp;
+                <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">Source Code</a>
             </div>
 
         </nav>
         <div id="content-container">
             <div id="sidebar">
-                <p>Welcome! Click on a park to see its study locations. This is for BOPC's park usership study.</p>
-                <p class="h1">Toggle Study Layers</p>
-                <p>
-                    <button id="zones-toggle" class="button" role="button">
-                        Zones&nbsp;
-                        <!-- <i class="i5 gg-shape-circle"></i> -->
-                    </button>
-                    <button id="scan-routes-toggle" class="button" role="button">
-                        Activity Scan Routes&nbsp;
-                        <!-- <i class="i6 gg-shape-circle"></i> -->
-                    </button>
-                    <button id="entry-points-toggle" class="button" role="button">
-                        Entry Count Points&nbsp;
-                        <!-- <i class="i7 gg-shape-circle"></i> -->
-                    </button>
-                    <!-- <p class="legend-items">
-                        Entry Count Point Types<br>
-                        <img src="all-icon.svg" alt="All Icon" height="16px" /> All Count <br>
-                        <img src="pedestrian-icon.svg" alt="Pedestrian Icon" height="16px" /> Pedestrian Count <br>
-                        <img src="car-icon.svg" alt="Car Icon" height="16px" /> Car Count
-                    </p> -->
-                </p>
+                <p><b>How many people use Buffalo's Olmsted Parks every year?</b><br><br>
+                    BOPC, the <a href="https://www.bfloparks.org/" targe="_blank">Buffalo Olmsted Parks Conservancy</a>, tasked an NYU Wagner Capstone team with designing a comprehensive park usership 
+                    method. This map contains the recommended observation points and routes to be studied over four seasons to get an accurate estimate of total annual usership.
+                    <br><br> 
+                    Zoom to all 19 parks within the study and toggle their layers off and on!</p>
                 <p class="h1">Zoom to Each Park</p>
-                <p>Major Parks&nbsp;<i class="i1 gg-shape-circle"></i></p>
-                <p>
-                    <button id="delaware" class="button" role="button">Delaware Park</button>
-                    <button id="mlk" class="button" role="button">MLK Jr. Park</button>
-                    <button id="cazenovia" class="button" role="button">Cazenovia Park</button>
-                    <button id="south" class="button" role="button">South Park</button>
-                    <button id="riverside" class="button" role="button">Riverside Park</button>
-                    <button id="front" class="button" role="button">Front Park</button>
-                </p>
-                <p>Pocket Parks&nbsp;<i class="i2 gg-shape-circle"></i></p>
-                <p>
-                    <button id="days" class="button" role="button">Days Park</button>
-                    <button id="heacock" class="button" role="button">Heacock Place</button>
-                    <button id="prospect" class="button" role="button">Prospect Park</button>
-                </p>
-                <p>Parkways&nbsp;<i class="i3 gg-shape-circle"></i></p>
-                <p>
-                    <button id="bidwell" class="button" role="button">Bidwell Parkway</button>
-                    <button id="chapin" class="button" role="button">Chapin Parkway</button>
-                    <button id="lincoln" class="button" role="button">Lincoln Parkway</button>
-                </p>
-                <p>Circles&nbsp;<i class="i4 gg-shape-circle"></i></p>
-                <p>
-                    <button id="colonial" class="button" role="button">Colonial Circle</button>
-                    <button id="ferry" class="button" role="button">Ferry Circle</button>
-                    <button id="gates" class="button" role="button">Gates Circle</button>
-                    <button id="mcclellan" class="button" role="button">McClellan Circle</button>
-                    <button id="mckinley" class="button" role="button">McKinley Circle</button>
-                    <button id="soldiers" class="button" role="button">Soldier's Circle</button>
-                    <button id="symphony" class="button" role="button">Symphony Circle</button>
-                </p>
+                <button type="button" class="collapsible">
+                    Major Parks&nbsp;<i class="i1 gg-shape-circle"></i>
+                </button>
+                <div class="content">
+                    <p>
+                        <button id="delaware" class="button" role="button">Delaware Park</button>
+                        <button id="mlk" class="button" role="button">MLK Jr. Park</button>
+                        <button id="cazenovia" class="button" role="button">Cazenovia Park</button>
+                        <button id="south" class="button" role="button">South Park</button>
+                        <button id="riverside" class="button" role="button">Riverside Park</button>
+                        <button id="front" class="button" role="button">Front Park</button>
+                    </p>
+                </div>
+                <button type="button" class="collapsible">
+                    Pocket Parks&nbsp;<i class="i3 gg-shape-circle"></i>
+                </button>
+                <div class="content">
+                    <p>
+                        <button id="days" class="button" role="button">Days Park</button>
+                        <button id="heacock" class="button" role="button">Heacock Place</button>
+                        <button id="prospect" class="button" role="button">Prospect Park</button>
+                    </p>
+                </div>
+                <button type="button" class="collapsible">
+                    Parkways&nbsp;<i class="i2 gg-shape-circle"></i>
+                </button>
+                <div class="content">
+                    <p>
+                        <button id="bidwell" class="button" role="button">Bidwell Parkway</button>
+                        <button id="chapin" class="button" role="button">Chapin Parkway</button>
+                        <button id="lincoln" class="button" role="button">Lincoln Parkway</button>
+                    </p>
+                </div>
+                <button type="button" class="collapsible">
+                    Circles&nbsp;<i class="i4 gg-shape-circle"></i>
+                </button>
+                <div class="content">
+                    <p>
+                        <button id="colonial" class="button" role="button">Colonial Circle</button>
+                        <button id="ferry" class="button" role="button">Ferry Circle</button>
+                        <button id="gates" class="button" role="button">Gates Circle</button>
+                        <button id="mcclellan" class="button" role="button">McClellan Circle</button>
+                        <button id="mckinley" class="button" role="button">McKinley Circle</button>
+                        <button id="soldiers" class="button" role="button">Soldier's Circle</button>
+                        <button id="symphony" class="button" role="button">Symphony Circle</button>
+                    </p>
+                </div>
+                <p class="h1">Toggle Study Layers </p>
+                    <p>
+                        <button id="zones-toggle" class="button" role="button">
+                            Zones
+                        </button>
+                        <button id="scan-routes-toggle" class="button" role="button">
+                            Activity Scan Routes
+                        </button>
+                        <button id="entry-points-toggle" class="button" role="button">
+                            Entry Count Points
+                        </button>
+                    </p>
                 <p class="h1">Reset Map</p>
                 <button id="home" class="button" role="button">Full View</button>
                 <p><br><br><br><br><br></p>
