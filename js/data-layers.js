@@ -3,7 +3,6 @@
 // add a zoom threshold that won't show labels at too far a scale
 const zoomThreshold = 13;
 
-
 // add data on load
 map.on('load', () => {
 
@@ -20,8 +19,9 @@ map.on('load', () => {
         'source': 'bopc-parks',
         'layout': {},
         'paint': {
-            // 'line-color': '#626262',
-            'line-width': 2,
+            'line-width': {
+                stops: [[12, 4], [14, 3], [16, 2]]
+            }, 
             'line-color': [
                 'match',
                 ['get', 'class'],
@@ -53,23 +53,6 @@ map.on('load', () => {
             },
         }
     });
-    // add labels
-    map.addLayer({
-        'id': 'zone-labels',
-        'type': 'symbol',
-        'source': 'zones',
-        'minzoom': zoomThreshold,
-        'layout': {
-            'text-field': ['get', 'zone-id'],
-            'text-justify': 'auto',
-            'text-size': 24,
-        },
-        'paint': {
-            'text-color': '#F3F3F3',
-            'text-halo-color': '#565656',
-            'text-halo-width': 2
-        }
-    });
 
     // SCAN ROUTES
     // add geojson source
@@ -86,7 +69,7 @@ map.on('load', () => {
         'paint': {
             'line-color': '#eeff41',
             'line-width': {
-                stops: [[12, 1], [13, 2], [14, 4], [16, 6]]
+                stops: [[12, 1], [13, 1], [14, 2.5], [15, 3]]
             },
             'line-dasharray': [0, 2, 4]
         }
@@ -98,7 +81,7 @@ map.on('load', () => {
         type: 'geojson',
         data: 'data/entry-points.geojson',
     })
-    // add circle layer
+    // // add circle layer
     map.addLayer({
         'id': 'entry-points-circles',
         'type': 'circle',
@@ -108,13 +91,32 @@ map.on('load', () => {
             'circle-radius': {
                 stops: [[12, 1], [13, 2], [14, 6], [15, 8], [16, 12]]
             },
-            'circle-color': '#ffffff',
-            'circle-opacity': 0.6,
-            'circle-stroke-color': '#565656',
+            'circle-color': '#0197A6',
+            'circle-opacity': 0.7,
+            'circle-stroke-color': '#000000',
             'circle-stroke-width': 1
         }
     });
-    // add labels
+
+    // LABELS
+    // add labels for zones
+    map.addLayer({
+        'id': 'zone-labels',
+        'type': 'symbol',
+        'source': 'zones',
+        'minzoom': zoomThreshold,
+        'layout': {
+            'text-field': ['get', 'zone-id'],
+            'text-justify': 'auto',
+            'text-size': 24,
+        },
+        'paint': {
+            'text-color': '#F3F3F3',
+            'text-halo-color': '#565656',
+            'text-halo-width': 2
+        }
+    });
+    // add labels for entry points
     map.addLayer({
         'id': 'entry-points-labels',
         'type': 'symbol',
@@ -132,5 +134,4 @@ map.on('load', () => {
             'text-halo-width': 2
         }
     });
-    
 });
