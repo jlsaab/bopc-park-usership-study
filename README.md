@@ -13,9 +13,9 @@ This responsive map combines these layers to be a field tool for observers who w
 
 Website is live here: <a href="https://jlsaab.github.io/bopc-park-usership-study/" target="_blank">jlsaab.github.io/bopc-park-usership-study</a>
 
-### The initial view of the full park system
+#### The initial view of map shows some key park assets
 ![alt text](assets/map-sample-full.png "Full Map")
 
-### The view of MLK Jr Park, which has six activity scan routes and seven entry points.
+#### The view of MLK Jr Park, which has six activity scan routes and seven entry points
 ![alt text](assets/map-sample-detail.png "Detail Map")
 
