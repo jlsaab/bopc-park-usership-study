@@ -8,12 +8,15 @@ const bounds = [
     [-78.65267, 42.97024]
 ];
 
+const satellite = 'mapbox://styles/mapbox/satellite-v9'
+const light = 'mapbox://styles/mapbox/light-v11'
+
 // create the map
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9',
-    center: [-78.86166, 42.9204],
-    zoom: 12.61,
+    style: light,
+    center: [-78.88421, 42.89091],
+    zoom: 10.92,
     maxBounds: bounds,
     // hash: true
 });

@@ -1,7 +1,7 @@
 // Add toggle-able buttons for zones, entry points, and scan routes with this code from class
 
 // SCAN ROUTES and ZONES toggle
-let zonesVisible = true
+let zonesVisible = false
 // when the toggle button is clicked, check zonesVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
 $('#scan-routes-zones-toggle').on('click', function () {
 
@@ -24,7 +24,7 @@ $('#scan-routes-zones-toggle').on('click', function () {
 })
 
 // ENTRY POINTS toggle
-let entrypointsVisible = true
+let entrypointsVisible = false
 $('#entry-points-toggle').on('click', function () {
     let value = 'visible'
     if (entrypointsVisible === true) { value = 'none' }
