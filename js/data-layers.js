@@ -6,8 +6,7 @@ const zoomThreshold = 13;
 // add data on load
 map.on('style.load', () => {
 
-    // PARKS
-    // add geojson sources and base layer of park types
+    // adding in geojson sources
     map.addSource('bopc-parks', {
         type: 'geojson',
         data: 'data/bopc-parks.geojson'
@@ -24,8 +23,9 @@ map.on('style.load', () => {
         type: 'geojson',
         data: 'data/entry-points.geojson',
     })
-    map.addLayer({
-        'id': 'bopc-parks-outline',
+
+    // adding in base fill and line layers of parks by type
+    map.addLayer({'id': 'bopc-parks-outline',
         'type': 'line',
         'source': 'bopc-parks',
         // 'maxzoom': zoomThreshold,
@@ -47,8 +47,7 @@ map.on('style.load', () => {
             ]
         }
     })
-    map.addLayer({
-        'id': 'bopc-parks-fill',
+    map.addLayer({'id': 'bopc-parks-fill',
         'type': 'fill',
         'source': 'bopc-parks',
         // 'maxzoom': zoomThreshold,
@@ -69,8 +68,30 @@ map.on('style.load', () => {
                 '#ccc' // other
             ]
         }
-    },)
+    })
+    map.addLayer({'id': 'bopc-park-labels',
+            'type': 'symbol',
+            'source': 'bopc-parks',
+            // 'minzoom': zoomThreshold,
+            'layout': {
+                'text-field': ['get', 'name_label'],
+                'text-justify': 'auto',
+                'text-size': {
+                    stops: [[12, 14], [13, 16], [14, 18], [15, 20], [16, 24]]
+                },
+                'visibility': 'visible',
+                'text-padding': 100,
+                'symbol-spacing': 400,
+            },
+            'paint': {
+                'text-color': '#F3F3F3',
+                'text-halo-color': '#565656',
+                'text-halo-width': 2
+            }
+    })
+    
 
+    // adding in layers of custom study points
     const studylayers = [
         {
             'id': 'zones-outline',
@@ -121,7 +142,7 @@ map.on('style.load', () => {
                 'circle-stroke-width': 1
             }
         },
-        {
+        {   
             'id': 'zone-labels',
             'type': 'symbol',
             'source': 'zones',
@@ -129,7 +150,7 @@ map.on('style.load', () => {
             'layout': {
                 'text-field': ['get', 'zone-id'],
                 'text-justify': 'auto',
-                'text-size': 24,
+                'text-size': 16,
                 'visibility': 'visible',
             },
             'paint': {
@@ -157,15 +178,16 @@ map.on('style.load', () => {
             }
         }
     ]
-
     studylayers.forEach(layer => {
         map.addLayer(layer);
     })
 });
 
+// PARK INFO
 // if the user clicks the 'bopc-parks-fill' layer, extract properties from the clicked feature, using jQuery to write them to another part of the page.
 map.on('click', 'bopc-parks-fill', (e) => {
     var name_label = e.features[0].properties.name_label
     $('#park-name').text(`You clicked ${name_label}!`)
 });
+
 

@@ -18,7 +18,7 @@ $('#mlk').on('click', function () {
 $('#cazenovia').on('click', function () {
     map.flyTo({
         center: [-78.80561, 42.84574],
-        zoom: 14.36,
+        zoom: 14.82,
         duration: 1500
     })
 });
