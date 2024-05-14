@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    
+
     <!-- website title -->
     <title>BOPC Park Usership Study Map</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    
+
     <!-- adding all css files -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -23,8 +23,8 @@
     <div id="main-container">
         <nav>
             <div class="title">BOPC Park Usership Study Map</div>
-            
-            <!-- Menu bar links -->
+
+            <!-- menu bar links -->
             <div class="nav-links">
                 <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>&nbsp;&nbsp;
                 <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">Source
@@ -33,8 +33,7 @@
 
         </nav>
         <div id="content-container">
-            
-            <!-- Sidebar content -->
+            <!-- sidebar content -->
             <div id="sidebar">
 
                 <!-- introduction text -->
@@ -90,29 +89,24 @@
                         <button id="symphony" class="button" role="button">Symphony Circle</button>
                     </p>
                 </div>
-                
-                <!-- section for all study layer buttons -->
-                <p class="h1">Toggle Study Layers </p>
-                <p>
-                    <button id="scan-routes-zones-toggle" class="button" role="button">
-                        Scan Routes and Zones&nbsp;<i class="i6 gg-shape-circle"></i>
-                    </button>
-                    <button id="entry-points-toggle" class="button" role="button">
-                        Entry Count Points&nbsp;<i class="i7 gg-shape-circle"></i>
-                    </button>
-                </p>
-
-                <!-- section for map controls -->
-                <p class="h1">Reset Map</p>
                 <button id="home" class="button" role="button">Full System View</button>
-                <p><br><br><br><br><br></p>
             </div>
-            <div id="map"></div>
+            <div id="map">
+                <!-- legend -->
+                <div id="legend">
+                    <p id="park-name">Click a park on the map, the name will be displayed here.</p>
+                    <p class="h1">Toggle Study Layers</p>
+                    <button id="scan-routes-zones-toggle" class="button" role="button">Scan Routes and Zones&nbsp;<i class="i6 gg-shape-circle"></i></button>
+                    <button id="entry-points-toggle" class="button" role="button">Entry Count Points&nbsp;<i class="i7 gg-shape-circle"></i></button>
+                    <button id="toggle-style" class="button" role="button">Toggle Background</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Adding all javascript code files -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="js/menu-box.js"></script>
     <script src="js/data-layers.js"></script>

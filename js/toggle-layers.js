@@ -1,34 +1,36 @@
 // Add toggle-able buttons for zones, entry points, and scan routes with this code from class
 
-// SCAN ROUTES and ZONES toggle
-let zonesVisible = false
-// when the toggle button is clicked, check zonesVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
+// create a function to toggle visibility for multiple layers
+function toggleLayerVisibility(layerIds) {
+    layerIds.forEach(layerId => {
+        const visibility = map.getLayoutProperty(layerId, 'visibility');
+        if (visibility === 'visible') { map.setLayoutProperty(layerId, 'visibility', 'none'); }
+        else { map.setLayoutProperty(layerId, 'visibility', 'visible'); }
+    })
+}
+
+// configure activity scan routes and zones button
 $('#scan-routes-zones-toggle').on('click', function () {
+    // toggle visibility for each layer
+    toggleLayerVisibility(['zones-outline', 'zone-labels', 'routes-lines']);
+});
 
-    // by default we will set the layers to visible
-    let value = 'visible'
-
-    // if the layers are already visible, set their visibility to 'none'
-    if (zonesVisible === true) {
-        value = 'none'
-    }
-
-    // use setLayoutProperty to apply the visibility (either 'visible' or 'none' depending on the logic above)
-    map.setLayoutProperty('zones-outline', 'visibility', value)
-    map.setLayoutProperty('zone-labels', 'visibility', value)
-    map.setLayoutProperty('routes-lines', 'visibility', value)
-    map.setLayoutProperty('routes-labels', 'visibility', value)
-
-    // flip the value in zonesVisible to reflect the new state. (if true, it becomes false, if false it becomes true)
-    zonesVisible = !zonesVisible
-})
-
-// ENTRY POINTS toggle
-let entrypointsVisible = false
+// configure entry point counts button
 $('#entry-points-toggle').on('click', function () {
-    let value = 'visible'
-    if (entrypointsVisible === true) { value = 'none' }
-    map.setLayoutProperty('entry-points-circles', 'visibility', value)
-    map.setLayoutProperty('entry-points-labels', 'visibility', value)
-    entrypointsVisible = !entrypointsVisible
-})
+    toggleLayerVisibility(['entry-points-labels', 'entry-points-circles']);
+});
+
+
+// create a function to toggle background from light to satellite
+let currentStyle = 'light';
+
+function toggleMapStyle() {
+    currentStyle = (currentStyle === 'light') ? 'satellite' : 'light';
+    const nextStyle = (currentStyle === 'light') ? 'mapbox://styles/mapbox/light-v11' : 'mapbox://styles/mapbox/satellite-v9';
+    map.setStyle(nextStyle);
+}
+
+// configure background toggle button
+$('#toggle-style').on('click', function() {
+    toggleMapStyle();
+});

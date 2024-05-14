@@ -18,7 +18,7 @@ const map = new mapboxgl.Map({
     center: [-78.88421, 42.89091],
     zoom: 10.92,
     maxBounds: bounds,
-    // hash: true
+    hash: true
 });
 
 // styles for reference

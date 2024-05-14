@@ -1,8 +1,5 @@
 // Adding click actions that zoom the view to all the park assets
 
-// Adding layers for easier reference
-const zones_outline = map.getLayer('zones-outline');
-
 // listen for clicks on specific parks to flyTo close-up view
 $('#delaware').on('click', function () {
     map.flyTo({
@@ -10,10 +7,7 @@ $('#delaware').on('click', function () {
         zoom: 13.97,
         duration: 1500
     })
-    map.setStyle(satellite)
-    map.addLayer(map.getLayer('zones-outline'))
 });
-
 $('#mlk').on('click', function () {
     map.flyTo({
         center: [-78.84039, 42.90503],
