@@ -97,7 +97,7 @@ map.on('style.load', () => {
             'id': 'zones-outline',
             'type': 'line',
             'source': 'zones',
-            'minzoom': zoomThreshold,
+            // 'minzoom': zoomThreshold,
             'layout': {
                 'visibility': 'visible',
             },
@@ -112,7 +112,7 @@ map.on('style.load', () => {
             'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
-            'minzoom': zoomThreshold,
+            // 'minzoom': zoomThreshold,
             'layout': {
                 'visibility': 'visible',
             },
@@ -128,7 +128,7 @@ map.on('style.load', () => {
             'id': 'entry-points-circles',
             'type': 'circle',
             'source': 'entry-points',
-            'minzoom': zoomThreshold,
+            // 'minzoom': zoomThreshold,
             'layout': {
                 'visibility': 'visible',
             },
@@ -142,8 +142,25 @@ map.on('style.load', () => {
                 'circle-stroke-width': 1
             }
         },
-        {   
-            'id': 'zone-labels',
+        // {
+        //     'id': 'entry-points-circles',
+        //     'type': 'symbol',
+        //     'source': 'entry-points',
+        //     'minzoom': zoomThreshold,
+        //     'layout': {
+        //         'icon-image': [
+        //             'match', 
+        //             ['get', 'category'],
+        //             'Pedestrian Count', 'assets/ped-icon.svg',
+        //             'All Count', 'assets/all-icon.svg',
+        //             'Car Count', 'assets/car-icon.svg',
+        //             'assets/ped-icon.svg'],
+        //         'icon-size': 10,
+        //         'icon-allow-overlap': true
+        //     },
+        //     'paint': {}
+        // },
+        {   'id': 'zone-labels',
             'type': 'symbol',
             'source': 'zones',
             'minzoom': zoomThreshold,
@@ -183,11 +200,11 @@ map.on('style.load', () => {
     })
 });
 
-// PARK INFO
-// if the user clicks the 'bopc-parks-fill' layer, extract properties from the clicked feature, using jQuery to write them to another part of the page.
+// adding text in the side bar that shows park name
 map.on('click', 'bopc-parks-fill', (e) => {
     var name_label = e.features[0].properties.name_label
-    $('#park-name').text(`You clicked ${name_label}!`)
+    var year = e.features[0].properties.year
+    $('#park-name').text(`${name_label}, est. ${year}.`)
 });
 
 

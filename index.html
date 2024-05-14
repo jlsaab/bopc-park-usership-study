@@ -48,9 +48,17 @@
                 <!-- user instructions -->
                 <p class="cta">Zoom to each park and toggle the study layers off and on.</p>
 
+                <p class="h1">Toggle Study Layers</p>
+                <button id="scan-routes-zones-toggle" class="button" role="button"><i class="i6 gg-shape-circle"></i>&nbsp;Scan Routes and Zones</button>
+                <button id="entry-points-toggle" class="button" role="button"><i class="i7 gg-shape-circle"></i>&nbsp;Entry Count Points</button>
+
+
                 <!-- sections for zoom-to buttons -->
                 <p class="h1">Zoom to Each Park</p>
-                <button type="button" class="collapsible">Major Parks&nbsp;<i class="i1 gg-shape-oval"></i></button>
+                <button type="button" class="collapsible">
+                    <span class="legend-key" style="background-color: #38761D;"></span>
+                    <span>Major Parks</span>
+                </button>
                 <div class="content">
                     <p>
                         <button id="delaware" class="button" role="button">Delaware Park</button>
@@ -61,7 +69,10 @@
                         <button id="front" class="button" role="button">Front Park</button>
                     </p>
                 </div>
-                <button type="button" class="collapsible">Pocket Parks&nbsp;<i class="i3 gg-shape-oval"></i></button>
+                <button type="button" class="collapsible">
+                    <span class="legend-key" style="background-color: #0197A6;"></span>
+                    <span>Pocket Parks</span>
+                </button>
                 <div class="content">
                     <p>
                         <button id="days" class="button" role="button">Days Park</button>
@@ -69,7 +80,10 @@
                         <button id="prospect" class="button" role="button">Prospect Park</button>
                     </p>
                 </div>
-                <button type="button" class="collapsible">Parkways&nbsp;<i class="i2 gg-shape-oval"></i></button>
+                <button type="button" class="collapsible">
+                    <span class="legend-key" style="background-color: #4EAE43;"></span>
+                    <span>Parkways</span>
+                </button>
                 <div class="content">
                     <p>
                         <button id="bidwell" class="button" role="button">Bidwell Parkway</button>
@@ -77,7 +91,10 @@
                         <button id="lincoln" class="button" role="button">Lincoln Parkway</button>
                     </p>
                 </div>
-                <button type="button" class="collapsible">Circles&nbsp;<i class="i4 gg-shape-oval"></i></button>
+                <button type="button" class="collapsible">
+                    <span class="legend-key" style="background-color: #B1621E;"></span>
+                    <span>Circles</span>
+                </button>
                 <div class="content">
                     <p>
                         <button id="colonial" class="button" role="button">Colonial Circle</button>
@@ -89,16 +106,14 @@
                         <button id="symphony" class="button" role="button">Symphony Circle</button>
                     </p>
                 </div>
+                <p class="h1">Map Controls</p>
                 <button id="home" class="button" role="button">Full System View</button>
+                <button id="toggle-style" class="button" role="button">Toggle Background</button>
             </div>
             <div id="map">
                 <!-- legend -->
-                <div id="legend">
-                    <p id="park-name">Click a park on the map, the name will be displayed here.</p>
-                    <p class="h1">Toggle Study Layers</p>
-                    <button id="scan-routes-zones-toggle" class="button" role="button">Scan Routes and Zones&nbsp;<i class="i6 gg-shape-circle"></i></button>
-                    <button id="entry-points-toggle" class="button" role="button">Entry Count Points&nbsp;<i class="i7 gg-shape-circle"></i></button>
-                    <button id="toggle-style" class="button" role="button">Toggle Background</button>
+                <div class="legend" id="legend-2">
+                    <p id="park-name">Click a park to get more info.</p>
                 </div>
             </div>
         </div>
