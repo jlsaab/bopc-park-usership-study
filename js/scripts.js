@@ -9,7 +9,7 @@ const bounds = [
 ];
 
 const satellite = 'mapbox://styles/mapbox/satellite-v9'
-const light = 'mapbox://styles/mapbox/light-v11'
+const streets = 'mapbox://styles/mapbox/streets-v12'
 
 // create the map
 const map = new mapboxgl.Map({

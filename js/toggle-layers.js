@@ -21,12 +21,12 @@ $('#entry-points-toggle').on('click', function () {
 });
 
 
-// create a function to toggle background from light to satellite
-let currentStyle = 'light';
+// create a function to toggle background from satellite to streets
+let currentStyle = 'streets';
 
 function toggleMapStyle() {
-    currentStyle = (currentStyle === 'light') ? 'satellite' : 'light';
-    const nextStyle = (currentStyle === 'light') ? 'mapbox://styles/mapbox/light-v11' : 'mapbox://styles/mapbox/satellite-v9';
+    currentStyle = (currentStyle === 'satellite') ? 'streets' : 'satellite';
+    const nextStyle = (currentStyle === 'satellite') ? 'mapbox://styles/mapbox/streets-v12' : 'mapbox://styles/mapbox/satellite-v9';
     map.setStyle(nextStyle);
 }
 
