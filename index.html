@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,19 +10,18 @@
 
     <!-- adding all css files -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/colors.css" rel="stylesheet">
     <link href="css/menu-box.css" rel="stylesheet">
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
-
 </head>
 
 <body>
     <div id="main-container">
         <nav>
-            <div class="title">BOPC Park Usership Study Map</div>
+            <div class="title">Buffalo's Olmsted Park Usership Study Map</div>
 
             <!-- menu bar links -->
             <div class="nav-links">
@@ -36,98 +35,186 @@
             <!-- sidebar content -->
             <div id="sidebar">
 
-                <!-- introduction text -->
-                <p class="h1">How many people use Buffalo's Olmsted Parks every year?</p>
-                <p>
-                    The <a class="link" href="https://www.bfloparks.org/" target="_blank">Buffalo Olmsted Parks Conservancy</a>
-                    tasked an NYU Wagner Capstone team with designing a comprehensive park usership
-                    method. This map shows the recommended observation points and routes to be studied over four
-                    seasons to get an accurate estimate of total annual usership.
-                </p>
+                <!-- introduction -->
+                <strong>How many people use Buffalo's Olmsted Parks every year?</strong>
+                This map is one tool to help answer that question. It shows recommended observation routes and points for a comprehensive 
+                park usership study. Volunteers can use this map to review the study recommendations while in the field.
+                
+                <!-- user instructions -->                
+                <p class="cta">Zoom to your park and toggle the study layers off and on.</p>
 
-                <!-- user instructions -->
-                <p class="cta">Zoom to each park and toggle the study layers off and on.</p>
+                <!-- first set of map layer buttons to toggle study layers -->
+                <p class="h1"><br>Toggle Study Layers</p>
+                <button id="scan-routes-zones-toggle" class="button" role="button"><i
+                        class="i6 gg-shape-circle"></i>&nbsp;Scan Routes and Zones</button>
+                <button id="entry-points-toggle" class="button" role="button"><i
+                        class="i7 gg-shape-circle"></i>&nbsp;Entry Count Points</button>
+                
+                <!-- second set of map layer buttons to zoom-to parks -->
+                <p class="h1"><br>Zoom to Each Park</p>
+                
+                <!-- toggle layer button - to be removed -->
+                <!-- <button id="toggle-style" class="button" role="button">Toggle Background</button> -->
 
-                <p class="h1">Toggle Study Layers</p>
-                <button id="scan-routes-zones-toggle" class="button" role="button"><i class="i6 gg-shape-circle"></i>&nbsp;Scan Routes and Zones</button>
-                <button id="entry-points-toggle" class="button" role="button"><i class="i7 gg-shape-circle"></i>&nbsp;Entry Count Points</button>
-
-
-                <!-- sections for zoom-to buttons -->
-                <p class="h1">Zoom to Each Park</p>
-                <button type="button" class="collapsible">
-                    <span class="legend-key" style="background-color: #38761D;"></span>
-                    <span>Major Parks</span>
-                </button>
-                <div class="content">
-                    <p>
-                        <button id="delaware" class="button" role="button">Delaware Park</button>
-                        <button id="mlk" class="button" role="button">MLK Jr. Park</button>
-                        <button id="cazenovia" class="button" role="button">Cazenovia Park</button>
-                        <button id="south" class="button" role="button">South Park</button>
-                        <button id="riverside" class="button" role="button">Riverside Park</button>
-                        <button id="front" class="button" role="button">Front Park</button>
-                    </p>
+                <!-- accordion menu from bootstrap -->
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                <span class="legend-key" style="background-color: #38761D;"></span>
+                                <span style="font-size: .9rem;">Major Parks</span>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    <button id="delaware" class="button" role="button">Delaware Park</button>
+                                    <button id="mlk" class="button" role="button">MLK Jr. Park</button>
+                                    <button id="cazenovia" class="button" role="button">Cazenovia Park</button>
+                                    <button id="south" class="button" role="button">South Park</button>
+                                    <button id="riverside" class="button" role="button">Riverside Park</button>
+                                    <button id="front" class="button" role="button">Front Park</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                                <span class="legend-key" style="background-color: #0197A6;"></span>
+                                <span style="font-size: .9rem;">Pocket Parks</span>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    <button id="days" class="button" role="button">Days Park</button>
+                                    <button id="heacock" class="button" role="button">Heacock Place</button>
+                                    <button id="prospect" class="button" role="button">Prospect Park</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                                <span class="legend-key" style="background-color: #4EAE43;"></span>
+                                <span style="font-size: .9rem;">Parkways</span>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    <button id="bidwell" class="button" role="button">Bidwell Parkway</button>
+                                    <button id="chapin" class="button" role="button">Chapin Parkway</button>
+                                    <button id="lincoln" class="button" role="button">Lincoln Parkway</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseFour">
+                                <span class="legend-key" style="background-color: #B1621E;"></span>
+                                <span style="font-size: .9rem;">Circles</span>
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>
+                                    <button id="colonial" class="button" role="button">Colonial Circle</button>
+                                    <button id="ferry" class="button" role="button">Ferry Circle</button>
+                                    <button id="gates" class="button" role="button">Gates Circle</button>
+                                    <button id="mcclellan" class="button" role="button">McClellan Circle</button>
+                                    <button id="mckinley" class="button" role="button">McKinley Circle</button>
+                                    <button id="soldiers" class="button" role="button">Soldier's Circle</button>
+                                    <button id="symphony" class="button" role="button">Symphony Circle</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="h1"><br>Map Controls</p>
+                        <button id="home" class="button" role="button">Full System View</button>
+                    </div>
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseFive">
+                                    <span class="legend-key" style="background-color: #38761D;"></span>
+                                    <span style="font-size: .9rem;">About This Map</span>
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <p>
+                                        The <a class="link" href="https://www.bfloparks.org/" target="_blank">Buffalo Olmsted Parks Conservancy</a>
+                                        tasked an NYU Wagner Capstone team with designing a comprehensive park usership
+                                        method. This map shows the recommended observation points and routes to be studied over four
+                                        seasons to get an accurate estimate of total annual usership.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button type="button" class="collapsible">
-                    <span class="legend-key" style="background-color: #0197A6;"></span>
-                    <span>Pocket Parks</span>
-                </button>
-                <div class="content">
-                    <p>
-                        <button id="days" class="button" role="button">Days Park</button>
-                        <button id="heacock" class="button" role="button">Heacock Place</button>
-                        <button id="prospect" class="button" role="button">Prospect Park</button>
-                    </p>
-                </div>
-                <button type="button" class="collapsible">
-                    <span class="legend-key" style="background-color: #4EAE43;"></span>
-                    <span>Parkways</span>
-                </button>
-                <div class="content">
-                    <p>
-                        <button id="bidwell" class="button" role="button">Bidwell Parkway</button>
-                        <button id="chapin" class="button" role="button">Chapin Parkway</button>
-                        <button id="lincoln" class="button" role="button">Lincoln Parkway</button>
-                    </p>
-                </div>
-                <button type="button" class="collapsible">
-                    <span class="legend-key" style="background-color: #B1621E;"></span>
-                    <span>Circles</span>
-                </button>
-                <div class="content">
-                    <p>
-                        <button id="colonial" class="button" role="button">Colonial Circle</button>
-                        <button id="ferry" class="button" role="button">Ferry Circle</button>
-                        <button id="gates" class="button" role="button">Gates Circle</button>
-                        <button id="mcclellan" class="button" role="button">McClellan Circle</button>
-                        <button id="mckinley" class="button" role="button">McKinley Circle</button>
-                        <button id="soldiers" class="button" role="button">Soldier's Circle</button>
-                        <button id="symphony" class="button" role="button">Symphony Circle</button>
-                    </p>
-                </div>
-                <p class="h1">Map Controls</p>
-                <button id="home" class="button" role="button">Full System View</button>
-                <button id="toggle-style" class="button" role="button">Toggle Background</button>
+                
             </div>
+
+            <!-- MAP container -->
             <div id="map">
+
                 <!-- legend -->
                 <div class="legend" id="legend-2">
-                    <p id="park-name">Click a park to get more info.</p>
+                    <!-- <p id="park-name">Click a park to get more info.</p> -->
+                    <div>
+                        <p class="h1">Legend</p>
+                    </div>
+                    <div>
+                        <span class="legend-key" style="background-color: #38761D;"></span>
+                        <span>Major Parks</span>
+                    </div>
+                    <div>
+                        <span class="legend-key" style="background-color: #0197A6;"></span>
+                        <span>Pocket Parks</span>
+                    </div>
+                    <div>
+                        <span class="legend-key" style="background-color: #4EAE43;"></span>
+                        <span>Parkways</span>
+                    </div>
+                    <div>
+                        <span class="legend-key" style="background-color: #B1621E;"></span>
+                        <span>Circles</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Adding all javascript code files -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="js/menu-box.js"></script>
     <script src="js/data-layers.js"></script>
     <script src="js/toggle-layers.js"></script>
     <script src="js/flyto-parks.js"></script>
-    <script src="js/markers.js"></script>
+    <!-- markers not defined yet -->
+    <!-- <script src="js/markers.js"></script> -->
 
 </body>
 

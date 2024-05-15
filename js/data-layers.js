@@ -11,6 +11,10 @@ map.on('style.load', () => {
         type: 'geojson',
         data: 'data/bopc-parks.geojson'
     })
+    map.addSource('inverted-parks', {
+        type: 'geojson',
+        data: 'data/inverted.geojson'
+    })
     map.addSource('zones', {
         type: 'geojson',
         data: 'data/zones.geojson',
@@ -34,7 +38,7 @@ map.on('style.load', () => {
         },
         'paint': {
             'line-width': {
-                stops: [[12, 3], [14, 2], [16, 1]]
+                stops: [[12, 3], [14, 4], [16, 5]]
             },
             'line-color': [
                 'match',
@@ -50,13 +54,12 @@ map.on('style.load', () => {
     map.addLayer({'id': 'bopc-parks-fill',
         'type': 'fill',
         'source': 'bopc-parks',
-        // 'maxzoom': zoomThreshold,
         'layout': {
             'visibility': 'visible',
         },
         'paint': {
             'fill-opacity': {
-                stops: [[10, 0.9], [12, 0.5], [14, 0.2]]
+                stops: [[11, 0.9], [12, 0.5], [13, 0.1]]
             },
             'fill-color': [
                 'match',
@@ -69,37 +72,48 @@ map.on('style.load', () => {
             ]
         }
     })
-    map.addLayer({'id': 'bopc-park-labels',
-            'type': 'symbol',
-            'source': 'bopc-parks',
-            // 'minzoom': zoomThreshold,
-            'layout': {
-                'text-field': ['get', 'name_label'],
-                'text-justify': 'auto',
-                'text-size': {
-                    stops: [[12, 14], [13, 16], [14, 18], [15, 20], [16, 24]]
-                },
-                'visibility': 'visible',
-                'text-padding': 100,
-                'symbol-spacing': 400,
-            },
-            'paint': {
-                'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
-                'text-halo-width': 2
-            }
+    map.addLayer({'id': 'inverted-parks-fill',
+        'type': 'fill',
+        'source': 'inverted-parks',
+        // 'maxzoom': zoomThreshold,
+        'layout': {
+            'visibility': 'visible',
+        },
+        'paint': {
+            'fill-opacity': 0.7,
+            'fill-color': '#292828'
+        }
     })
-    
+    map.addLayer({'id': 'bopc-park-labels',
+        'type': 'symbol',
+        'source': 'bopc-parks',
+        // 'minzoom': zoomThreshold,
+        'layout': {
+            'text-field': ['get', 'name_label'],
+            'text-justify': 'auto',
+            'text-size': {
+                stops: [[12, 14], [13, 16], [14, 18], [15, 20], [16, 24]]
+            },
+            'visibility': 'visible',
+            'text-padding': 100,
+            'symbol-spacing': 400,
+        },
+        'paint': {
+            'text-color': '#F3F3F3',
+            'text-halo-color': '#565656',
+            'text-halo-width': 2
+        }
+    })
+
 
     // adding in layers of custom study points
     const studylayers = [
-        {
-            'id': 'zones-outline',
+        {'id': 'zones-outline',
             'type': 'line',
             'source': 'zones',
             // 'minzoom': zoomThreshold,
             'layout': {
-                'visibility': 'visible',
+                'visibility': 'none',
             },
             'paint': {
                 'line-color': '#000000',
@@ -108,13 +122,12 @@ map.on('style.load', () => {
                 },
             }
         },
-        {
-            'id': 'routes-lines',
+        {'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
             // 'minzoom': zoomThreshold,
             'layout': {
-                'visibility': 'visible',
+                'visibility': 'none',
             },
             'paint': {
                 'line-color': '#eeff41',
@@ -124,26 +137,57 @@ map.on('style.load', () => {
                 'line-dasharray': [0, 2, 4]
             }
         },
-        {
-            'id': 'entry-points-circles',
-            'type': 'circle',
-            'source': 'entry-points',
-            // 'minzoom': zoomThreshold,
+        {'id': 'zone-labels',
+            'type': 'symbol',
+            'source': 'zones',
+            'minzoom': zoomThreshold,
             'layout': {
-                'visibility': 'visible',
+                'text-field': ['get', 'zone-id'],
+                'text-justify': 'auto',
+                'text-size': 16,
+                'visibility': 'none',
             },
             'paint': {
-                'circle-radius': {
-                    stops: [[12, 1], [13, 2], [14, 6], [15, 8], [16, 12]]
-                },
-                'circle-color': '#0197A6',
-                'circle-opacity': 0.7,
-                'circle-stroke-color': '#000000',
-                'circle-stroke-width': 1
+                'text-color': '#F3F3F3',
+                'text-halo-color': '#565656',
+                'text-halo-width': 2
             }
         },
-        // {
-        //     'id': 'entry-points-circles',
+        {'id': 'entry-points-circles',
+        'type': 'circle',
+        'source': 'entry-points',
+        // 'minzoom': zoomThreshold,
+        'layout': {
+            'visibility': 'none',
+        },
+        'paint': {
+            'circle-radius': {
+                stops: [[12, 1], [13, 2], [14, 6], [15, 8], [16, 12]]
+            },
+            'circle-color': '#0197A6',
+            'circle-opacity': 0.7,
+            'circle-stroke-color': '#000000',
+            'circle-stroke-width': 1
+        }
+        },
+        {'id': 'entry-points-labels',
+            'type': 'symbol',
+            'source': 'entry-points',
+            'minzoom': zoomThreshold,
+            'layout': {
+                'text-field': ['get', 'id'],
+                'text-justify': 'auto',
+                'text-size': 16,
+                'text-offset': [0, -1.5],
+                'visibility': 'none'
+            },
+            'paint': {
+                'text-color': '#F3F3F3',
+                'text-halo-color': '#565656',
+                'text-halo-width': 2
+            }
+        }
+        // {'id': 'entry-points-circles',
         //     'type': 'symbol',
         //     'source': 'entry-points',
         //     'minzoom': zoomThreshold,
@@ -160,40 +204,6 @@ map.on('style.load', () => {
         //     },
         //     'paint': {}
         // },
-        {   'id': 'zone-labels',
-            'type': 'symbol',
-            'source': 'zones',
-            'minzoom': zoomThreshold,
-            'layout': {
-                'text-field': ['get', 'zone-id'],
-                'text-justify': 'auto',
-                'text-size': 16,
-                'visibility': 'visible',
-            },
-            'paint': {
-                'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
-                'text-halo-width': 2
-            }
-        },
-        {
-            'id': 'entry-points-labels',
-            'type': 'symbol',
-            'source': 'entry-points',
-            'minzoom': zoomThreshold,
-            'layout': {
-                'text-field': ['get', 'id'],
-                'text-justify': 'auto',
-                'text-size': 16,
-                'text-offset': [0, -1.5],
-                'visibility': 'visible'
-            },
-            'paint': {
-                'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
-                'text-halo-width': 2
-            }
-        }
     ]
     studylayers.forEach(layer => {
         map.addLayer(layer);
@@ -201,10 +211,10 @@ map.on('style.load', () => {
 });
 
 // adding text in the side bar that shows park name
-map.on('click', 'bopc-parks-fill', (e) => {
-    var name_label = e.features[0].properties.name_label
-    var year = e.features[0].properties.year
-    $('#park-name').text(`${name_label}, est. ${year}.`)
-});
+// map.on('click', 'bopc-parks-fill', (e) => {
+//     var name_label = e.features[0].properties.name_label
+//     var year = e.features[0].properties.year
+//     $('#park-name').text(`${name_label}, est. ${year}.`)
+// });
 
 

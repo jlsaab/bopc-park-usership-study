@@ -1,7 +1,7 @@
 /* Button template from CSS Scan's `Button 8` at https://getcssscan.com/css-buttons-examples */
 
 .button {
-    background-color: #f0f0f0; 
+    background-color: #ffffff; 
     /* button color */
     border-radius: 3px;
     border: 1px solid #9d9d9d;
@@ -30,17 +30,20 @@
   }
   
   .button:hover,
-  .button:focus {
+  .button:focus,
+  .accordion-button:focus {
     background-color: #b3eab5; /* button color when cursor on top ^ */
     color: #2c7734; /* font color when cursor on top ^ */
   }
   
-  .button:focus {
+  .button:focus,
+  .accordion-button:focus {
     box-shadow: 0 0 0 4px rgba(0, 255, 42, 0.15); /* highlight color when selected ^ */
   }
   
   /* state when clicked */
-  .button:active {
+  .button:active,
+  .accordion-button:focus {
     background-color: #a0e4a3; /* button color ^ */
     box-shadow: none;
     color: #2c7749; /* font color ^ */

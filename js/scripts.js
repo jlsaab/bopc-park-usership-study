@@ -14,7 +14,7 @@ const light = 'mapbox://styles/mapbox/light-v11'
 // create the map
 const map = new mapboxgl.Map({
     container: 'map',
-    style: light,
+    style: satellite,
     center: [-78.88421, 42.89091],
     zoom: 10.92,
     maxBounds: bounds,
