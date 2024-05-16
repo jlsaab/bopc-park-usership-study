@@ -45,3 +45,14 @@ map.addControl(
         showUserHeading: true
     })
 );
+
+// function to animate legend adapted from classmate Henry Kanengiser's work at https://github.com/henry-kanengiser/fcny-community-solar
+function openNav() {
+    $('#legend').css('transform', 'translate(0px)');
+  }
+  
+  /* Set the width of the sidebar to 0 (hide it) */
+  function closeNav() {
+    $('#legend').css('transform', 'translate(-95%)');
+  }
+  

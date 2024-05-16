@@ -40,9 +40,6 @@
 
 /* Scan Routes */
 .i5 {
-    /* color: #000000; */
-    /* background-color: #a84aba; */
-    /* border-color: #a84aba; */
     border: 3px dashed #a84aba;
     border-radius: 80px
 }
@@ -51,7 +48,6 @@
 .i9 {border-color: #000000;
     border: 3px solid;
 }
-
 
 /* Entry Points */
 /* Pedestrian */
