@@ -170,7 +170,7 @@ map.on('style.load', () => {
                 'text-field': ['get', 'zone-id'],
                 'text-justify': 'auto',
                 'text-size': {
-                    stops: [[12, 0], [13, 0], [14, 12], [16, 16]]
+                    stops: [[12, 0], [13, 0], [14, 16], [16, 24]]
                 },
                 'visibility': 'none',
             },
@@ -220,14 +220,42 @@ map.on('style.load', () => {
     studylayers.forEach(layer => {
         map.addLayer(layer);
     })
+});
 
 
-    // adding text in the side bar that shows park name
-    map.on('click', 'bopc-parks-fill', (e) => {
-        var name_label = e.features[0].properties.name_label
-        var year = e.features[0].properties.year
-        var park_form = e.features[0].properties.park_form
-        $('#park-name').text(`${name_label}, est. ${year}.`)
-        $('#park-form').text(`Study form: ${park_form}`)
-    })
+// adding text in the side bar that shows park name
+// map.on('click', 'bopc-parks-fill', (e) => {
+//     var name_label = e.features[0].properties.name_label
+//     var year = e.features[0].properties.year
+//     var park_form = e.features[0].properties.park_form
+//     $('#park-name').text(`${name_label}, est. ${year}.`)
+//     $('#park-form').text(`Study form: ${park_form}`)
+// });
+
+// map.on('click', 'inverted-parks-fill', (e) => {
+//     var name_label = e.features[0].properties.name_label
+//     var year = e.features[0].properties.year
+//     var park_form = e.features[0].properties.park_form
+//     $('#park-name').text(``)
+//     $('#park-form').text(``)
+// });
+
+
+map.on('click', 'bopc-parks-fill', (e) => {
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(`<strong>${e.features[0].properties.name_label}</strong>, est. ${e.features[0].properties.year}, ${e.features[0].properties.park_form}`)
+        .addTo(map);
+});
+
+// Change the cursor to a pointer when
+// the mouse is over the states layer.
+map.on('mouseenter', 'bopc-parks-fill', () => {
+    map.getCanvas().style.cursor = 'pointer';
+});
+
+// Change the cursor back to a pointer
+// when it leaves the states layer.
+map.on('mouseleave', 'bopc-parks-fill', () => {
+    map.getCanvas().style.cursor = '';
 });

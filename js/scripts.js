@@ -53,6 +53,6 @@ function openNav() {
   
   /* Set the width of the sidebar to 0 (hide it) */
   function closeNav() {
-    $('#legend').css('transform', 'translate(-95%)');
+    $('#legend').css('transform', 'translate(-105%)');
   }
   

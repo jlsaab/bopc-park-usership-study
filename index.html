@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
 
     <!-- website title -->
@@ -15,6 +16,16 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/colors.css" rel="stylesheet">
+
+    <!-- favicon addition of BOPC logo -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body>
@@ -88,12 +99,12 @@
                 <p class="cta">Zoom to your park and toggle the study layers off and on.</p>
 
                 <!-- first set of map layer buttons to toggle study layers -->
-                <p class="h1"><br>Toggle Study Layers</p>
+                <p class="h1">Toggle Study Layers</p>
                 <button id="entry-points-toggle" class="button" role="button">Entry Count Points</button>
                 <button id="scan-routes-zones-toggle" class="button" role="button">Scan Routes and Zones</button>
 
                 <!-- second set of map layer buttons to zoom-to parks -->
-                <p class="h1"><br>Zoom to Each Park</p>
+                <p class="h1">Zoom to Each Park</p>
 
                 <!-- accordion menu from bootstrap -->
                 <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -183,7 +194,7 @@
 
                     <!-- third set of map layer buttons -->
                     <div>
-                        <p class="h1"><br>Map Controls</p>
+                        <p class="h1">Map Controls</p>
 
                         <button id="home" class="button" role="button">Full System View</button>
                         <button id="toggle-style" class="button" role="button">Toggle Background</button>
@@ -200,7 +211,7 @@
                 <!-- NOTE: this must sit outside the sidepanel div so it stays open -->
                 <div type="button" class="reopen-legend-button" onclick="openNav()">
                     <!-- Use Bootstrap chevron icon (https://icons.getbootstrap.com/icons/chevron-right/) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         class="bi bi-chevron-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
                             d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
@@ -213,15 +224,13 @@
                 <div class="legend" id="legend" style="transform: translate(0px);">
                     <div type="button" class="legend-button" onclick="closeNav()">
                         <!-- Use Bootstrap chevron icon (https://icons.getbootstrap.com/icons/chevron-left/) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             class="bi bi-chevron-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
                         </svg>
                     </div>
-                    <div>
-                        <p class="h1">Park Types</p>
-                    </div>
+                    <div><strong>Park Types</strong></div>
                     <div>
                         <span class="legend-key i1"></span><span>Major Parks</span>
                     </div>
@@ -234,10 +243,7 @@
                     <div>
                         <span class="legend-key i4"></span><span>Circles</span>
                     </div>
-                    <div>
-                        <br>
-                        <p class="h1">Entry Point Types</p>
-                    </div>
+                    <div class="h1">Entry Point Types</div>
                     <div>
                         <span class="legend-key i6"></span><span>Pedestrian Count</span>
                     </div>
@@ -247,21 +253,18 @@
                     <div>
                         <span class="legend-key i8"></span><span>All Count</span>
                     </div>
+                    <div class="h1">Activity Scan Areas</div>
                     <div>
-                        <br>
-                        <p class="h1">Activity Scan</p>
+                        <span><i class="legend-key i5"></i>Routes</span>
                     </div>
                     <div>
-                        <span><i class="legend-key i5"></i>&nbsp;Routes</span>
+                        <span><i class="legend-key i9"></i>Zones</span>
                     </div>
-                    <div>
-                        <span><i class="legend-key i9"></i>&nbsp;Zones</span>
-                    </div>
-                    <div>
-                        <br>
-                        <p class="h1" id="park-name">Click a park to get more info.</p>
+                    <!-- <div>
+                        <p class="cta">Click a park to get more info.</p>
+                        <p class="h1" id="park-name">(park name)</p>
                         <p id="park-form">(park form)</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -283,7 +286,6 @@
     <script src="js/data-layers.js"></script>
     <script src="js/flyto-parks.js"></script>
     <script src="data/entry-points.js"></script>
-    <!-- <script src="js/markers.js"></script> -->
     <script src="js/toggle-layers.js"></script>
 
 </body>

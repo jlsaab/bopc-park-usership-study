@@ -55,6 +55,7 @@ nav {
     font-size: .9rem;
     overflow-y: scroll;     /* remove to get rid of scroll bar on right of sidebar */
     box-sizing: border-box;
+    border-right: 3px solid #292828;
     border-bottom: 3px solid #292828;
     border-top: 3px solid #292828;
 }
@@ -72,6 +73,14 @@ nav {
     height: 25px;
 }
 
+/* custome popups for  */
+.mapboxgl-popup {
+    max-width: 400px;
+    font-family: inherit !important;
+    font-size: .9rem;
+    text-align: center;
+}
+
 /* overriding font within map */
 .mapboxgl-map {
     font-family: inherit !important;
@@ -84,7 +93,7 @@ nav {
     left: 20px;
     font-size: .9rem;
     z-index: 1;
-    width: 190px;
+    width: 185px;
     background: #F3F3F3;
     padding: 15px;
     border-radius: 10px;
@@ -104,26 +113,22 @@ nav {
 
 .legend-button {
     position: absolute;
-    /* font-size: large; */
     top: 5px;
     right: 5px;
-    /* background-color: #ccc; */
-    width: 30px;
-    height: 30px;
+    /* background-color: #f3f3f3; */
+    width: 25px;
+    height: 25px;
     border-radius: 6px;
 }
 
 .reopen-legend-button {
     position: absolute; 
-    /* font-size: larger; */
     z-index: 1;
-    /* top: 250px; */
-    /* margin-top: 12.1%; */
-    top: 5px;
-    left: 5px; 
-    /* background-color: #ccc; */
-    width: 30px;
-    height: 30px;
+    top: 20px;
+    left: 20px; 
+    background-color: #f3f3f3;
+    width: 25px;
+    height: 25px;
     border-radius: 6px;
 }
 
@@ -141,6 +146,7 @@ nav {
 .h1 {
     font-weight: 600;
     font-size: .9rem;
+    padding-top: 10px;
 }
 
 /* call to action highlight */
@@ -149,6 +155,7 @@ nav {
     line-height: 1.15385;
     margin: 4px 4px 4px 0;
     outline: none;
+    padding-top: 10px;
     padding: 8px .8em;
     border-radius: 3px;
 }
