@@ -21,9 +21,10 @@
 /* Entry Points */
 /* Pedestrian */
 .i6 {
-    /* background-color: #000000; */
+    background-color: #000000;
     background-image: url('/assets/ped-icon.png');
-    background-size: contain;
+    background-repeat: no-repeat; 
+    background-size: cover;
     width: 20px;
     height: 20px;
     border-radius: 100px
@@ -31,9 +32,10 @@
 
 /* Car */
 .i7 {
-    /* background-color: #000000; */
+    background-color: #000000;
     background-image: url('/assets/car-icon.png');
-    background-size: contain;
+    background-repeat: no-repeat; 
+    background-size: cover;
     width: 20px;
     height: 20px;
     border-radius: 100px
@@ -41,9 +43,10 @@
 
 /* All */
 .i8 {
-    /* background-color: #000000; */
+    background-color: #000000;
     background-image: url('/assets/all-icon.png');
-    background-size: contain;
+    background-repeat: no-repeat; 
+    background-size: cover;
     width: 20px;
     height: 20px;
     border-radius: 100px
