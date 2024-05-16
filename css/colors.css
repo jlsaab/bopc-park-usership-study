@@ -22,7 +22,7 @@
 /* Pedestrian */
 .i6 {
     background-color: #000000;
-    background-image: url('/assets/ped-icon.png');
+    background-image: url('https://jlsaab.github.io/assets/ped-icon.png');
     background-repeat: no-repeat; 
     background-size: cover;
     width: 20px;
@@ -33,7 +33,7 @@
 /* Car */
 .i7 {
     background-color: #000000;
-    background-image: url('/assets/car-icon.png');
+    background-image: url('https://jlsaab.github.io/assets/car-icon.png');
     background-repeat: no-repeat; 
     background-size: cover;
     width: 20px;
@@ -44,7 +44,7 @@
 /* All */
 .i8 {
     background-color: #000000;
-    background-image: url('/assets/all-icon.png');
+    background-image: url('https://jlsaab.github.io/assets/all-icon.png');
     background-repeat: no-repeat; 
     background-size: cover;
     width: 20px;
@@ -54,7 +54,7 @@
 
 /* BOPC logo */
 .i10 {
-    background-image: url('/assets/BOPC-logo-horizontal.png');
+    background-image: url('https://jlsaab.github.io/assets/BOPC-logo-horizontal.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
