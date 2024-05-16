@@ -7,6 +7,10 @@ const zoomThreshold = 13;
 map.on('style.load', () => {
 
     // adding in geojson sources
+    map.addSource('city-boundary', {
+        type: 'geojson',
+        data: 'data/city-boundary.geojson'
+    })
     map.addSource('bopc-parks', {
         type: 'geojson',
         data: 'data/bopc-parks.geojson'
@@ -28,11 +32,24 @@ map.on('style.load', () => {
         data: 'data/entry-points.geojson',
     })
 
+    // adding city boundary
+    map.addLayer({
+        'id': 'city-boundary-outline',
+        'type': 'line',
+        'source': 'city-boundary',
+        'layout': {
+            'visibility': 'visible',
+        },
+        'paint': {
+            'line-width': 2,
+            'line-color': '#f3f3f3',
+        }
+    })
     // adding in base fill and line layers of parks by type
-    map.addLayer({'id': 'bopc-parks-outline',
+    map.addLayer({
+        'id': 'bopc-parks-outline',
         'type': 'line',
         'source': 'bopc-parks',
-        // 'maxzoom': zoomThreshold,
         'layout': {
             'visibility': 'visible',
         },
@@ -51,7 +68,8 @@ map.on('style.load', () => {
             ]
         }
     })
-    map.addLayer({'id': 'bopc-parks-fill',
+    map.addLayer({
+        'id': 'bopc-parks-fill',
         'type': 'fill',
         'source': 'bopc-parks',
         'layout': {
@@ -72,10 +90,10 @@ map.on('style.load', () => {
             ]
         }
     })
-    map.addLayer({'id': 'inverted-parks-fill',
+    map.addLayer({
+        'id': 'inverted-parks-fill',
         'type': 'fill',
         'source': 'inverted-parks',
-        // 'maxzoom': zoomThreshold,
         'layout': {
             'visibility': 'visible',
         },
@@ -84,10 +102,10 @@ map.on('style.load', () => {
             'fill-color': '#292828'
         }
     })
-    map.addLayer({'id': 'bopc-park-labels',
+    map.addLayer({
+        'id': 'bopc-park-labels',
         'type': 'symbol',
         'source': 'bopc-parks',
-        // 'minzoom': zoomThreshold,
         'layout': {
             'text-field': ['get', 'name_label'],
             'text-justify': 'auto',
@@ -122,10 +140,10 @@ map.on('style.load', () => {
 
     // adding in layers of custom study points
     const studylayers = [
-        {'id': 'zones-outline',
+        {
+            'id': 'zones-outline',
             'type': 'line',
             'source': 'zones',
-            // 'minzoom': zoomThreshold,
             'layout': {
                 'visibility': 'none',
             },
@@ -136,10 +154,10 @@ map.on('style.load', () => {
                 },
             }
         },
-        {'id': 'routes-lines',
+        {
+            'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
-            // 'minzoom': zoomThreshold,
             'layout': {
                 'visibility': 'none',
             },
@@ -151,7 +169,8 @@ map.on('style.load', () => {
                 'line-dasharray': [0, 2, 4]
             }
         },
-        {'id': 'zone-labels',
+        {
+            'id': 'zone-labels',
             'type': 'symbol',
             'source': 'zones',
             'minzoom': zoomThreshold,
@@ -169,7 +188,8 @@ map.on('style.load', () => {
                 'text-halo-width': 2
             }
         },
-        {'id': 'entry-points-icons',
+        {
+            'id': 'entry-points-icons',
             'type': 'symbol',
             'source': 'entry-points',
             // 'minzoom': zoomThreshold,

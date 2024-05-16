@@ -19,14 +19,6 @@ $('#entry-points-toggle').on('click', function toggle() {
 })
 
 // create a function to toggle background from satellite to streets
-// let currentStyle = 'satellite';
-
-// function toggleMapStyle() {
-//     currentStyle = (currentStyle === 'streets') ? 'streets' : 'satellite';
-//     const nextStyle = (currentStyle === 'satellite') ? 'mapbox://styles/mapbox/streets-v12' : 'mapbox://styles/mapbox/satellite-v9';
-//     map.setStyle(nextStyle);
-// }
-
 let currentStyle = 'satellite';
 let streetsStyle = 'mapbox://styles/mapbox/streets-v12';
 let satelliteStyle = 'mapbox://styles/mapbox/satellite-v9';
