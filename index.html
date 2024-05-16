@@ -18,11 +18,11 @@
     <link href="css/colors.css" rel="stylesheet">
 
     <!-- favicon addition of BOPC logo -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_package/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_package/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_package/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="mask-icon" href="assets/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
@@ -35,30 +35,50 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="aboutLabel">About This Map</h1>
+                    <h1 class="modal-title fs-5" id="aboutLabel"><strong>About This Map</strong></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <p>
                     The <a class="link" href="https://www.bfloparks.org/" target="_blank">Buffalo Olmsted Parks
                         Conservancy</a>
-                    (BOPC) tasked an NYU Wagner Capstone student team with designing a comprehensive park usership
-                    method. This map shows the recommended observation points and routes that should be studied over
-                    four
-                    seasons to get enough samples to generate an accurate estimate of total annual usership.
+                    (BOPC) tasked an NYU Wagner Capstone student team with designing a comprehensive park usership study
+                    method over the course of the 2023-2024 academic year. 
+                    This map shows the observation points and routes the team recommended BOPC should study over
+                    four seasons to get a robust enough sample to generate an accurate estimate of total annual usership.
+                    </p>
+                    <p>
                     This map is meant to be used by BOPC staff and volunteers to make the data collection more handy
                     with a smartphone.
-                    <br><br>
+                    </p>
+                    <p>
                     The study recommends two study activities:
                     <ul>
-                        <li>Entry Point Counts</li>
-                        <li>Activity Scans</li>
+                        <li>
+                            <strong>Entry Point Counts</strong> are specific spots where observers are to conduct 
+                            10-minute counts on every individual entering a park space. There are three types:
+                            <ul>
+                            <li>
+                                <span class="legend-key i6"></span>Pedestrian Count: capture all park visitors that arrive on foot or by bike/skates/etc.
+                            </li>
+                            <li>
+                                <span class="legend-key i7"></span>Car Count: capture all park visitors that arrive in a vehicle and enter the park
+                            </li>
+                            <li>
+                                <span class="legend-key i8"></span>All Count: capture both park visitors that arrive on foot, bike/skates, or by car
+                            </li>
+                            </ul>
+                        </li>
+                        <li><strong>Activity Scans</strong> are specific routes that observers are to follow and take note of all the types of activities happening within the surrounding zone.</li>
                     </ul>
-                    Entry points are ...
-                    <br><br>
-                    Activity scans are ...
-                    <br><br>
-                    <span style="font-size: 12px;"> Map designed by Jessica Saab.<br>Study designed by Jake Mericle,
-                        Jessica Saab, Emily Speelman, and Stephen Zubrycky from NYU Wagner Class of 2024.</span>
+                    </p>
+                    <p>
+                        <div class="i10"></div>
+                        <span style="font-size: 12px;">
+                            Map designed by Jessica Saab.<br>
+                            Study designed by Jake Mericle, Jessica Saab, Emily Speelman, and Stephen Zubrycky from NYU Wagner Class of 2024.
+                        </span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -75,8 +95,8 @@
 
             <!-- menu bar links -->
             <div class="nav-links">
-                <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#about">About Map</a>&nbsp;&nbsp;
-                <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>&nbsp;&nbsp;
+                <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#about">About Map</a>&nbsp;&nbsp;&nbsp;
+                <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>&nbsp;&nbsp;&nbsp;
                 <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">Source
                     Code</a>
             </div>
@@ -92,8 +112,7 @@
                 <!-- introduction -->
                 <strong>How many people use Buffalo's Olmsted Parks every year?</strong>
                 This map is one tool to help answer that question. It shows recommended observation routes and points
-                for a comprehensive
-                park usership study. Volunteers can use this map to review the study recommendations while in the field.
+                for a comprehensive park usership study. Use this map to review study locations from the field.
 
                 <!-- user instructions -->
                 <p class="cta">Zoom to your park and toggle the study layers off and on.</p>
@@ -282,7 +301,6 @@
         crossorigin="anonymous"></script>
     <!-- other javascript files -->
     <script src="js/scripts.js"></script>
-    <script src="js/menu-box.js"></script>
     <script src="js/data-layers.js"></script>
     <script src="js/flyto-parks.js"></script>
     <script src="data/entry-points.js"></script>

@@ -1,31 +1,5 @@
 /* Colors for symbols and layers */
 
-/* oval shape adapted from https://css.gg/shape-circle */
-.gg-shape-oval {
-    box-sizing: border-box;
-    position: relative;
-    /* display: inline-block; */
-    display: inline-flex;
-    transform: scale(var(--ggs, 1));
-    width: 1.6rem;
-    height: .9rem;
-    border: 2px solid;
-    border-radius: 6px
-}
-
-/* circle shape from https://css.gg/shape-circle */
-.gg-shape-circle {
-    box-sizing: border-box;
-    position: relative;
-    /* display: inline-block; */
-    display: inline-flex;
-    transform: scale(var(--ggs, 1));
-    width: 20px;
-    height: 10px;
-    border: 3px solid;
-    border-radius: 6px
-}
-
 /* Major Park */
 .i1 {background-color: #38761D}
 
@@ -78,4 +52,14 @@
     width: 20px;
     height: 20px;
     border-radius: 100px
+}
+
+/* BOPC logo */
+.i10 {
+    background-image: url('/assets/BOPC-logo-horizontal.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
 }

@@ -29,8 +29,7 @@ map.on('style.load', () => {
     })
 
     // adding in base fill and line layers of parks by type
-    map.addLayer({
-        'id': 'bopc-parks-outline',
+    map.addLayer({'id': 'bopc-parks-outline',
         'type': 'line',
         'source': 'bopc-parks',
         // 'maxzoom': zoomThreshold,
@@ -52,8 +51,7 @@ map.on('style.load', () => {
             ]
         }
     })
-    map.addLayer({
-        'id': 'bopc-parks-fill',
+    map.addLayer({'id': 'bopc-parks-fill',
         'type': 'fill',
         'source': 'bopc-parks',
         'layout': {
@@ -74,8 +72,7 @@ map.on('style.load', () => {
             ]
         }
     })
-    map.addLayer({
-        'id': 'inverted-parks-fill',
+    map.addLayer({'id': 'inverted-parks-fill',
         'type': 'fill',
         'source': 'inverted-parks',
         // 'maxzoom': zoomThreshold,
@@ -87,13 +84,13 @@ map.on('style.load', () => {
             'fill-color': '#292828'
         }
     })
-    map.addLayer({
-        'id': 'bopc-park-labels',
+    map.addLayer({'id': 'bopc-park-labels',
         'type': 'symbol',
         'source': 'bopc-parks',
         // 'minzoom': zoomThreshold,
         'layout': {
             'text-field': ['get', 'name_label'],
+            'text-font-family': 'Galvji',
             'text-justify': 'auto',
             'text-size': {
                 stops: [[12, 14], [13, 16], [14, 18], [15, 20], [16, 24]]
@@ -109,16 +106,12 @@ map.on('style.load', () => {
         }
     })
 
-
     // adding custom markers for entry points
-
-    // Add custom icons as markers
     const markers = {
         'pedestrian count': 'assets/ped-icon.png',
         'car count': 'assets/car-icon.png',
         'all count': 'assets/all-icon.png'
     };
-
 
     // Load custom marker images
     Object.entries(markers).forEach(([category, marker]) => {
@@ -130,8 +123,7 @@ map.on('style.load', () => {
 
     // adding in layers of custom study points
     const studylayers = [
-        {
-            'id': 'zones-outline',
+        {'id': 'zones-outline',
             'type': 'line',
             'source': 'zones',
             // 'minzoom': zoomThreshold,
@@ -145,8 +137,7 @@ map.on('style.load', () => {
                 },
             }
         },
-        {
-            'id': 'routes-lines',
+        {'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
             // 'minzoom': zoomThreshold,
@@ -161,8 +152,7 @@ map.on('style.load', () => {
                 'line-dasharray': [0, 2, 4]
             }
         },
-        {
-            'id': 'zone-labels',
+        {'id': 'zone-labels',
             'type': 'symbol',
             'source': 'zones',
             'minzoom': zoomThreshold,
@@ -180,8 +170,7 @@ map.on('style.load', () => {
                 'text-halo-width': 2
             }
         },
-        {
-            'id': 'entry-points-icons',
+        {'id': 'entry-points-icons',
             'type': 'symbol',
             'source': 'entry-points',
             // 'minzoom': zoomThreshold,
@@ -197,7 +186,7 @@ map.on('style.load', () => {
                 'icon-size': {
                     stops: [[11, 0], [13, .4], [14, .6], [16, 1]]
                 },
-                'text-field': ['get', 'entry-point-id'],
+                'text-field': ['get', 'id'],
                 'text-justify': 'auto',
                 'text-size': {
                     stops: [[12, 0], [13, 0], [14, 12], [16, 16]]
@@ -222,40 +211,22 @@ map.on('style.load', () => {
     })
 });
 
-
-// adding text in the side bar that shows park name
-// map.on('click', 'bopc-parks-fill', (e) => {
-//     var name_label = e.features[0].properties.name_label
-//     var year = e.features[0].properties.year
-//     var park_form = e.features[0].properties.park_form
-//     $('#park-name').text(`${name_label}, est. ${year}.`)
-//     $('#park-form').text(`Study form: ${park_form}`)
-// });
-
-// map.on('click', 'inverted-parks-fill', (e) => {
-//     var name_label = e.features[0].properties.name_label
-//     var year = e.features[0].properties.year
-//     var park_form = e.features[0].properties.park_form
-//     $('#park-name').text(``)
-//     $('#park-form').text(``)
-// });
-
-
+// adding popups on park shapes with info
 map.on('click', 'bopc-parks-fill', (e) => {
-    new mapboxgl.Popup()
+    new mapboxgl.Popup({
+        closeButton: false,
+        offset: 24,
+        anchor: 'bottom-left'
+    })
         .setLngLat(e.lngLat)
-        .setHTML(`<strong>${e.features[0].properties.name_label}</strong>, est. ${e.features[0].properties.year}, ${e.features[0].properties.park_form}`)
+        .setHTML(`<strong>${e.features[0].properties.name_label}</strong>, est. ${e.features[0].properties.year}`)
         .addTo(map);
 });
 
-// Change the cursor to a pointer when
-// the mouse is over the states layer.
+// make the mouse become a pointer on top of park shapes
 map.on('mouseenter', 'bopc-parks-fill', () => {
     map.getCanvas().style.cursor = 'pointer';
 });
-
-// Change the cursor back to a pointer
-// when it leaves the states layer.
 map.on('mouseleave', 'bopc-parks-fill', () => {
     map.getCanvas().style.cursor = '';
 });
