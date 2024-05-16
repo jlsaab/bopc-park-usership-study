@@ -30,6 +30,9 @@ const map = new mapboxgl.Map({
 // add zoom buttons
 map.addControl(new mapboxgl.NavigationControl());
 
+// add full screen control
+map.addControl(new mapboxgl.FullscreenControl());
+
 // add geolocate control
 map.addControl(
     new mapboxgl.GeolocateControl({

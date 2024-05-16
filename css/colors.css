@@ -5,8 +5,8 @@
     box-sizing: border-box;
     position: relative;
     /* display: inline-block; */
-    display:inline-flex;
-    transform: scale(var(--ggs,1));
+    display: inline-flex;
+    transform: scale(var(--ggs, 1));
     width: 1.6rem;
     height: .9rem;
     border: 2px solid;
@@ -15,38 +15,71 @@
 
 /* circle shape from https://css.gg/shape-circle */
 .gg-shape-circle {
-box-sizing: border-box;
-position: relative;
-/* display: inline-block; */
-display:inline-flex;
-transform: scale(var(--ggs,1));
-width: .9rem;
-height: .9rem;
-border: 3px solid;
-border-radius: 6px
+    box-sizing: border-box;
+    position: relative;
+    /* display: inline-block; */
+    display: inline-flex;
+    transform: scale(var(--ggs, 1));
+    width: 20px;
+    height: 10px;
+    border: 3px solid;
+    border-radius: 6px
 }
 
-.i1 {color: #38761D} /* Major Park */
-.i2 {color: #4EAE43} /* Parkway */
-.i3 {color: #0197A6} /* Pocket Park */
-.i4 {color: #B1621E} /* Circles */
-.i5 {color: #000000} /* Zones */
+/* Major Park */
+.i1 {background-color: #38761D}
+
+/* Pocket Park */
+.i2 {background-color: #0197A6}
+
+/* Parkway */
+.i3 {background-color: #8de084}
+
+/* Circles */
+.i4 {background-color: #B1621E}
+
+/* Scan Routes */
+.i5 {
+    /* color: #000000; */
+    /* background-color: #a84aba; */
+    /* border-color: #a84aba; */
+    border: 3px dashed #a84aba;
+    border-radius: 80px
+}
+
+/* Major Park */
+.i9 {border-color: #000000;
+    border: 3px solid;
+}
+
+
+/* Entry Points */
+/* Pedestrian */
 .i6 {
-    color: #000000; 
-    background-color: #eeff41; 
-    width: .9rem; 
-    height: .9rem; 
-    border-color: #eeff41;
-    border: 1px dashed;
+    background-color: #000000;
+    background-image: url('/assets/ped-icon.png');
+    background-size: contain;
+    width: 20px;
+    height: 20px;
     border-radius: 100px
-} /* Scan Routes */
+}
 
-.i7 {color: #0198a6c1; 
-    background-color: #0198a6c1; 
-    border-color: #000000;
-    border-width: 1px;
-    width: .9rem; 
-    height: .9rem; 
-    border-radius: 100px} /* Entry Points */
+/* Car */
+.i7 {
+    background-color: #000000;
+    background-image: url('/assets/car-icon.png');
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px
+}
 
-
+/* All */
+.i8 {
+    background-color: #000000;
+    background-image: url('/assets/all-icon.png');
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px
+}

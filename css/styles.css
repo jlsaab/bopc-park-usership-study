@@ -22,7 +22,6 @@ body {
 /* menu bar styling */
 nav {
     padding: 1rem;
-    border-bottom: 3px solid #595959;
     display: flex;
 }
 
@@ -56,6 +55,8 @@ nav {
     font-size: .9rem;
     overflow-y: scroll;     /* remove to get rid of scroll bar on right of sidebar */
     box-sizing: border-box;
+    border-bottom: 3px solid #292828;
+    border-top: 3px solid #292828;
 }
 
 /* map container */
@@ -69,7 +70,11 @@ nav {
     background-size: contain;
     width: 25px;
     height: 25px;
-    color: "#4287f5";
+}
+
+/* overriding font within map */
+.mapboxgl-map {
+    font-family: inherit !important;
 }
 
 /* floating legend */
@@ -79,28 +84,28 @@ nav {
     left: 20px;
     font-size: .9rem;
     z-index: 1;
-    width: 140px;
+    width: 200px;
     background: #F3F3F3;
     padding: 15px;
     border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 2px 2px rgb(116 116 116);
-    -moz-box-shadow: 0px 0px 2px 2px rgb(116 116 116); 
-    box-shadow: 0px 0px 2px 2px rgb(116 116 116);
+    -webkit-box-shadow: 0px 0px 2px 2px #292828;
+    -moz-box-shadow: 0px 0px 2px 2px #292828; 
+    box-shadow: 0px 0px 2px 2px #292828;
     /* display: inline-block */
 }
 
 .legend-key {
     display: inline-block;
     border-radius: 20%;
-    width: 10px;
+    width: 20px;
     height: 10px;
     margin-right: 5px;
 }
 
 /* styles for text areas in the sidebar */
-#park-name, .description-text {
+#park-name, #park-form, .description-text {
     font-size: .9rem;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
   }
   
 

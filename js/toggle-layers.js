@@ -15,11 +15,9 @@ $('#scan-routes-zones-toggle').on('click', function () {
     toggleLayerVisibility(['zones-outline', 'zone-labels', 'routes-lines']);
 });
 
-// configure entry point counts button
-$('#entry-points-toggle').on('click', function () {
-    toggleLayerVisibility(['entry-points-labels', 'entry-points-circles']);
-});
-
+$('#entry-points-toggle').on('click', function toggle() {
+    toggleLayerVisibility(['entry-points-icons']);
+})
 
 // create a function to toggle background from satellite to streets
 let currentStyle = 'streets';

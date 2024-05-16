@@ -1,7 +1,7 @@
 var entrypoints =
     [
         {
-            "entryPointId": "Ped Count 1",
+            "entryPointId": "Pedestrian Count 1",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -11,7 +11,7 @@ var entrypoints =
             "latitude": 42.902
         },
         {
-            "entryPointId": "Ped Count 2",
+            "entryPointId": "Pedestrian Count 2",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -31,7 +31,7 @@ var entrypoints =
             "latitude": 42.901
         },
         {
-            "entryPointId": "Ped Count 1A",
+            "entryPointId": "Pedestrian Count 1A",
             "description": "History Museum & Jesse Kregal Path",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -41,7 +41,7 @@ var entrypoints =
             "latitude": 42.935
         },
         {
-            "entryPointId": "Ped Count 1B",
+            "entryPointId": "Pedestrian Count 1B",
             "description": "Torii Gate & Japanese Garden",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -51,7 +51,7 @@ var entrypoints =
             "latitude": 42.935
         },
         {
-            "entryPointId": "Ped Count 2",
+            "entryPointId": "Pedestrian Count 2",
             "description": "Delaware Avenue & Nottingham Terrace",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -61,7 +61,7 @@ var entrypoints =
             "latitude": 42.935
         },
         {
-            "entryPointId": "Ped Count 3",
+            "entryPointId": "Pedestrian Count 3",
             "description": "Lincoln Parkway North & Whirly Twirly Bridge",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -71,7 +71,7 @@ var entrypoints =
             "latitude": 42.935
         },
         {
-            "entryPointId": "Ped Count 4",
+            "entryPointId": "Pedestrian Count 4",
             "description": "Delaware Avenue by 198",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -81,7 +81,7 @@ var entrypoints =
             "latitude": 42.933
         },
         {
-            "entryPointId": "Ped Count 5",
+            "entryPointId": "Pedestrian Count 5",
             "description": "Rumsey Road & Forest Avenue",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -91,7 +91,7 @@ var entrypoints =
             "latitude": 42.928
         },
         {
-            "entryPointId": "Ped Count 6",
+            "entryPointId": "Pedestrian Count 6",
             "description": "Rumsey Road & Windsor Avenue",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -101,7 +101,7 @@ var entrypoints =
             "latitude": 42.93
         },
         {
-            "entryPointId": "Ped Count 7",
+            "entryPointId": "Pedestrian Count 7",
             "description": "Lincoln Parkway & Rumsey Road",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -111,7 +111,7 @@ var entrypoints =
             "latitude": 42.93
         },
         {
-            "entryPointId": "Ped Count 8",
+            "entryPointId": "Pedestrian Count 8",
             "description": "Bridge at Lincoln Parkway & Iroquois Drive",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -121,7 +121,7 @@ var entrypoints =
             "latitude": 42.933
         },
         {
-            "entryPointId": "Ped Count 9",
+            "entryPointId": "Pedestrian Count 9",
             "description": "Amherst Street & Crandall Road",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -141,7 +141,7 @@ var entrypoints =
             "latitude": 42.936
         },
         {
-            "entryPointId": "Ped Count 11",
+            "entryPointId": "Pedestrian Count 11",
             "description": "Florence Avenue & Parkside Lodge",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -161,7 +161,7 @@ var entrypoints =
             "latitude": 42.931
         },
         {
-            "entryPointId": "Ped Count 13",
+            "entryPointId": "Pedestrian Count 13",
             "description": "Meadow Road",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -171,7 +171,7 @@ var entrypoints =
             "latitude": 42.937
         },
         {
-            "entryPointId": "Ped Count 1A",
+            "entryPointId": "Pedestrian Count 1A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -191,7 +191,7 @@ var entrypoints =
             "latitude": 42.906
         },
         {
-            "entryPointId": "Ped Count 2",
+            "entryPointId": "Pedestrian Count 2",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -211,7 +211,7 @@ var entrypoints =
             "latitude": 42.905
         },
         {
-            "entryPointId": "Ped Count 3B",
+            "entryPointId": "Pedestrian Count 3B",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -221,7 +221,7 @@ var entrypoints =
             "latitude": 42.904
         },
         {
-            "entryPointId": "Ped Count 4",
+            "entryPointId": "Pedestrian Count 4",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -241,7 +241,7 @@ var entrypoints =
             "latitude": 42.904
         },
         {
-            "entryPointId": "Ped Count 1A",
+            "entryPointId": "Pedestrian Count 1A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -251,7 +251,7 @@ var entrypoints =
             "latitude": 42.921
         },
         {
-            "entryPointId": "Ped Count 1B",
+            "entryPointId": "Pedestrian Count 1B",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -261,7 +261,7 @@ var entrypoints =
             "latitude": 42.922
         },
         {
-            "entryPointId": "Ped Count 2A",
+            "entryPointId": "Pedestrian Count 2A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -271,7 +271,7 @@ var entrypoints =
             "latitude": 42.924
         },
         {
-            "entryPointId": "Ped Count 2B",
+            "entryPointId": "Pedestrian Count 2B",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -281,7 +281,7 @@ var entrypoints =
             "latitude": 42.925
         },
         {
-            "entryPointId": "Ped Count 1A",
+            "entryPointId": "Pedestrian Count 1A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -291,7 +291,7 @@ var entrypoints =
             "latitude": 42.925
         },
         {
-            "entryPointId": "Ped Count 1B",
+            "entryPointId": "Pedestrian Count 1B",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -301,7 +301,7 @@ var entrypoints =
             "latitude": 42.923
         },
         {
-            "entryPointId": "Ped Count 2",
+            "entryPointId": "Pedestrian Count 2",
             "description": "Chapin Parkway at Gates Circle",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -311,7 +311,7 @@ var entrypoints =
             "latitude": 42.921
         },
         {
-            "entryPointId": "Ped Count 1",
+            "entryPointId": "Pedestrian Count 1",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -381,7 +381,7 @@ var entrypoints =
             "latitude": 42.855
         },
         {
-            "entryPointId": "Ped Count 1",
+            "entryPointId": "Pedestrian Count 1",
             "description": "Vulcan St & Tonawanda St",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -391,7 +391,7 @@ var entrypoints =
             "latitude": 42.959
         },
         {
-            "entryPointId": "Ped Count 2A",
+            "entryPointId": "Pedestrian Count 2A",
             "description": "Vulcan St & River Rd",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -411,7 +411,7 @@ var entrypoints =
             "latitude": 42.957
         },
         {
-            "entryPointId": "Ped Count 3",
+            "entryPointId": "Pedestrian Count 3",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -421,7 +421,7 @@ var entrypoints =
             "latitude": 42.957
         },
         {
-            "entryPointId": "Ped Count 4",
+            "entryPointId": "Pedestrian Count 4",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -431,7 +431,7 @@ var entrypoints =
             "latitude": 42.956
         },
         {
-            "entryPointId": "Ped Count 5",
+            "entryPointId": "Pedestrian Count 5",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -461,7 +461,7 @@ var entrypoints =
             "latitude": 42.953
         },
         {
-            "entryPointId": "Ped Count 1A",
+            "entryPointId": "Pedestrian Count 1A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -481,7 +481,7 @@ var entrypoints =
             "latitude": 42.85
         },
         {
-            "entryPointId": "Ped Count 2A",
+            "entryPointId": "Pedestrian Count 2A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -511,7 +511,7 @@ var entrypoints =
             "latitude": 42.846
         },
         {
-            "entryPointId": "Ped Count 4A",
+            "entryPointId": "Pedestrian Count 4A",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -531,7 +531,7 @@ var entrypoints =
             "latitude": 42.845
         },
         {
-            "entryPointId": "Ped Count 5",
+            "entryPointId": "Pedestrian Count 5",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",
@@ -571,7 +571,7 @@ var entrypoints =
             "latitude": 42.827
         },
         {
-            "entryPointId": "Ped Count 4",
+            "entryPointId": "Pedestrian Count 4",
             "description": "",
             "category": "Pedestrian Count",
             "icon": "assets/ped-icon.svg",

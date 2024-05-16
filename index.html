@@ -15,23 +15,55 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/colors.css" rel="stylesheet">
-    <link href="css/menu-box.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="main-container">
+  
+    <!-- Modal -->
+  <div class="modal fade" id="about" tabindex="-1" aria-labelledby="aboutLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="aboutLabel">About This Map</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            The <a class="link" href="https://www.bfloparks.org/" target="_blank">Buffalo Olmsted Parks Conservancy</a>
+            (BOPC) tasked an NYU Wagner Capstone student team with designing a comprehensive park usership
+            method. This map shows the recommended observation points and routes that should be studied over four
+            seasons to get enough samples to generate an accurate estimate of total annual usership. 
+            This map is meant to be used by BOPC staff and volunteers to make the data collection more handy with a smartphone.
+            <br><br>
+            Map designed by Jessica Saab
+            <br><br>
+            Study designed by Jake Mericle, Jessica Saab, Emily Speelman, and Stephen Zubrycky from NYU Wagner Class of 2024
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MAIN TEXT -->
+  <div id="main-container">
+
+    <!-- navigation menu bar -->
         <nav>
-            <div class="title">Buffalo's Olmsted Park Usership Study Map</div>
+
+            <!-- title -->
+            <div class="title">Buffalo Olmsted Park Usership Study Map</div>
 
             <!-- menu bar links -->
             <div class="nav-links">
+                <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#about">About This Map</a>&nbsp;&nbsp;
                 <a class="nav-link" href="https://www.bfloparks.org/about/" target="_blank">About BOPC</a>&nbsp;&nbsp;
                 <a class="nav-link" href="https://github.com/jlsaab/bopc-park-usership-study" target="_blank">Source
                     Code</a>
             </div>
 
         </nav>
+
+<!-- SIDEBAR -->
         <div id="content-container">
+
             <!-- sidebar content -->
             <div id="sidebar">
 
@@ -39,16 +71,14 @@
                 <strong>How many people use Buffalo's Olmsted Parks every year?</strong>
                 This map is one tool to help answer that question. It shows recommended observation routes and points for a comprehensive 
                 park usership study. Volunteers can use this map to review the study recommendations while in the field.
-                
+
                 <!-- user instructions -->                
                 <p class="cta">Zoom to your park and toggle the study layers off and on.</p>
 
                 <!-- first set of map layer buttons to toggle study layers -->
                 <p class="h1"><br>Toggle Study Layers</p>
-                <button id="scan-routes-zones-toggle" class="button" role="button"><i
-                        class="i6 gg-shape-circle"></i>&nbsp;Scan Routes and Zones</button>
-                <button id="entry-points-toggle" class="button" role="button"><i
-                        class="i7 gg-shape-circle"></i>&nbsp;Entry Count Points</button>
+                <button id="scan-routes-zones-toggle" class="button" role="button">Scan Routes and Zones</button>
+                <button id="entry-points-toggle" class="button" role="button">Entry Count Points</button>
                 
                 <!-- second set of map layer buttons to zoom-to parks -->
                 <p class="h1"><br>Zoom to Each Park</p>
@@ -140,35 +170,14 @@
                     </div>
 
                     <!-- third set of map layer buttons -->
-                    <div>
-                        <p class="h1"><br>Map Controls</p>
+                <div>
+                    <p class="h1"><br>Map Controls</p>
+
                         <button id="home" class="button" role="button">Full System View</button>
                         <button id="toggle-style" class="button" role="button">Toggle Background</button>
 
-                    </div>
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                                    aria-controls="panelsStayOpen-collapseFive">
-                                    <span class="legend-key" style="background-color: #38761D;"></span>
-                                    <span style="font-size: .9rem;">About This Map</span>
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    <p>
-                                        The <a class="link" href="https://www.bfloparks.org/" target="_blank">Buffalo Olmsted Parks Conservancy</a>
-                                        tasked an NYU Wagner Capstone team with designing a comprehensive park usership
-                                        method. This map shows the recommended observation points and routes to be studied over four
-                                        seasons to get an accurate estimate of total annual usership.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
                 
             </div>
 
@@ -177,25 +186,48 @@
 
                 <!-- legend -->
                 <div class="legend" id="legend-2">
-                    <!-- <p id="park-name">Click a park to get more info.</p> -->
                     <div>
-                        <p class="h1">Legend</p>
+                        <p class="h1">Park Types</p>
                     </div>
                     <div>
-                        <span class="legend-key" style="background-color: #38761D;"></span>
-                        <span>Major Parks</span>
+                        <span class="legend-key i1"></span><span>Major Parks</span>
                     </div>
                     <div>
-                        <span class="legend-key" style="background-color: #0197A6;"></span>
-                        <span>Pocket Parks</span>
+                        <span class="legend-key i2"></span><span>Pocket Parks</span>
                     </div>
                     <div>
-                        <span class="legend-key" style="background-color: #4EAE43;"></span>
-                        <span>Parkways</span>
+                        <span class="legend-key i3"></span><span>Parkways</span>
                     </div>
                     <div>
-                        <span class="legend-key" style="background-color: #B1621E;"></span>
-                        <span>Circles</span>
+                        <span class="legend-key i4"></span><span>Circles</span>
+                    </div>
+                    <div>
+                        <br>
+                        <p class="h1">Entry Point Types</p>
+                    </div>
+                    <div>
+                        <span class="legend-key i6"></span><span>Pedestrian Count</span>
+                    </div>
+                    <div>
+                        <span class="legend-key i7"></span><span>Car Count</span>
+                    </div>
+                    <div>
+                        <span class="legend-key i8"></span><span>All Count</span>
+                    </div>
+                    <div>
+                        <br>
+                        <p class="h1">Activity Scan</p>
+                    </div>
+                    <div>
+                        <span><i class="legend-key i5"></i>&nbsp;Routes</span>
+                    </div>
+                    <div>
+                        <span><i class="legend-key i9"></i>&nbsp;Zones</span>
+                    </div>
+                    <div>
+                        <br>
+                        <p class="h1" id="park-name">Click a park to get more info.</p>
+                        <p id="park-form">(park form)</p>
                     </div>
                 </div>
             </div>
@@ -216,10 +248,10 @@
     <script src="js/scripts.js"></script>
     <script src="js/menu-box.js"></script>
     <script src="js/data-layers.js"></script>
-    <script src="js/toggle-layers.js"></script>
     <script src="js/flyto-parks.js"></script>
     <script src="data/entry-points.js"></script>
-    <script src="js/markers.js"></script>
+    <!-- <script src="js/markers.js"></script> -->
+    <script src="js/toggle-layers.js"></script>
 
 </body>
 

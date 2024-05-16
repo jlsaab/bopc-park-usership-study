@@ -12,6 +12,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "MLK Jr. Park",
+                "park_form": "coming soon",
                 "street": "175 North Parade, 1354 & 1194 Genesee",
                 "year": "1876",
                 "sbl": "100.16-1-1, 101.61-7-1, 101.61-9-35",
@@ -1161,6 +1162,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "McKinley Circle",
+                "park_form": "coming soon",
                 "street": "McKinley Circle r.o.w.",
                 "year": "1896",
                 "sbl": "",
@@ -1610,6 +1612,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Days Park",
+                "park_form": "coming soon",
                 "street": "86 Days Park",
                 "year": "1859",
                 "sbl": "100.77-10-67",
@@ -1879,6 +1882,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Bidwell Parkway",
+                "park_form": "coming soon",
                 "street": "Bidwell Pkwy r.o.w.",
                 "year": "1876",
                 "sbl": "",
@@ -2212,6 +2216,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Symphony Circle",
+                "park_form": "coming soon",
                 "street": "4 Symphony Circle & Symphony Circle r.o.w.",
                 "year": "1920",
                 "sbl": "99.76-4-10",
@@ -3045,6 +3050,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Ferry Circle",
+                "park_form": "coming soon",
                 "street": "intersection of W Ferry & Richmond r.o.w.",
                 "year": "1876",
                 "sbl": "",
@@ -3646,6 +3652,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Prospect Park",
+                "park_form": "coming soon",
                 "street": "730 & 779 Niagara St",
                 "year": "1851",
                 "sbl": "99.74-3-1, 99.75-1-1",
@@ -4103,6 +4110,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "South Park",
+                "park_form": "coming soon",
                 "street": "2441 South Park Ave",
                 "year": "1925",
                 "sbl": "142.05-1-1.1",
@@ -4444,6 +4452,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Riverside Park",
+                "park_form": "coming soon",
                 "street": "2505 Niagara St",
                 "year": "1898",
                 "sbl": "77.10-1-1",
@@ -4765,6 +4774,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Chapin Parkway",
+                "park_form": "coming soon",
                 "street": "Chapin Pkwy r.o.w.",
                 "year": "1876",
                 "sbl": "",
@@ -5166,6 +5176,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Gates Circle",
+                "park_form": "coming soon",
                 "street": "2 Gates Circle",
                 "year": "1876",
                 "sbl": "89.79-4-2",
@@ -6763,6 +6774,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Soldier's Circle",
+                "park_form": "coming soon",
                 "street": "198 Soldiers Pl & Soldiers Pl r.o.w.",
                 "year": "1974",
                 "sbl": "89.62-4-20",
@@ -8176,6 +8188,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Front Park",
+                "park_form": "coming soon",
                 "street": "952 Busti Ave",
                 "year": "1896",
                 "sbl": "99.82-7-1",
@@ -8513,6 +8526,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Colonial Circle",
+                "park_form": "coming soon",
                 "street": "420 Lafayette Ave & Colonial Circle r.o.w.",
                 "year": "1876",
                 "sbl": "88.84-5-30",
@@ -9178,6 +9192,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Lincoln Parkway",
+                "park_form": "coming soon",
                 "street": "Lincoln Pkwy r.o.w.",
                 "year": "1876",
                 "sbl": "",
@@ -9763,6 +9778,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "McClellan Circle",
+                "park_form": "coming soon",
                 "street": "81 McClellan Circle & McClellan Clellan Circle r.o.w.",
                 "year": "1896",
                 "sbl": "133.49-2-30",
@@ -10504,6 +10520,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Heacock Place",
+                "park_form": "coming soon",
                 "street": "225 Abbott Rd",
                 "year": "1885",
                 "sbl": "123.79-6-1",
@@ -10917,6 +10934,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Delaware Park",
+                "park_form": "coming soon",
                 "street": "414 Parkside Ave & 2182 Delaware Ave",
                 "year": "1876",
                 "sbl": "89.07-1-1, 89.14-3-1",
@@ -20850,6 +20868,7 @@
             "type": "Feature",
             "properties": {
                 "name_label": "Cazenovia Park",
+                "park_form": "coming soon",
                 "street": "161 Cazenovia St",
                 "year": "1896",
                 "sbl": "133.16-1-1",

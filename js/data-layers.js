@@ -29,7 +29,8 @@ map.on('style.load', () => {
     })
 
     // adding in base fill and line layers of parks by type
-    map.addLayer({'id': 'bopc-parks-outline',
+    map.addLayer({
+        'id': 'bopc-parks-outline',
         'type': 'line',
         'source': 'bopc-parks',
         // 'maxzoom': zoomThreshold,
@@ -44,14 +45,15 @@ map.on('style.load', () => {
                 'match',
                 ['get', 'class'],
                 'Major Park', '#38761D',
-                'Parkway', '#4EAE43',
+                'Parkway', '#8de084',
                 'Pocket Park', '#0197A6',
                 'Circle', '#B1621E',
                 '#ccc' // other
             ]
         }
     })
-    map.addLayer({'id': 'bopc-parks-fill',
+    map.addLayer({
+        'id': 'bopc-parks-fill',
         'type': 'fill',
         'source': 'bopc-parks',
         'layout': {
@@ -59,20 +61,21 @@ map.on('style.load', () => {
         },
         'paint': {
             'fill-opacity': {
-                stops: [[11, 0.9], [12, 0.5], [13, 0.1]]
+                stops: [[11, 0.9], [12, 0.5], [14, 0.0]]
             },
             'fill-color': [
                 'match',
                 ['get', 'class'],
                 'Major Park', '#38761D',
-                'Parkway', '#4EAE43',
+                'Parkway', '#8de084',
                 'Pocket Park', '#0197A6',
                 'Circle', '#B1621E',
                 '#ccc' // other
             ]
         }
     })
-    map.addLayer({'id': 'inverted-parks-fill',
+    map.addLayer({
+        'id': 'inverted-parks-fill',
         'type': 'fill',
         'source': 'inverted-parks',
         // 'maxzoom': zoomThreshold,
@@ -84,7 +87,8 @@ map.on('style.load', () => {
             'fill-color': '#292828'
         }
     })
-    map.addLayer({'id': 'bopc-park-labels',
+    map.addLayer({
+        'id': 'bopc-park-labels',
         'type': 'symbol',
         'source': 'bopc-parks',
         // 'minzoom': zoomThreshold,
@@ -106,9 +110,28 @@ map.on('style.load', () => {
     })
 
 
+    // adding custom markers for entry points
+
+    // Add custom icons as markers
+    const markers = {
+        'pedestrian count': 'assets/ped-icon.png',
+        'car count': 'assets/car-icon.png',
+        'all count': 'assets/all-icon.png'
+    };
+
+
+    // Load custom marker images
+    Object.entries(markers).forEach(([category, marker]) => {
+        map.loadImage(`${marker}`, (error, image) => {
+            if (error) throw error;
+            map.addImage(marker.replace('.png', ''), image); // Remove extension for image id
+        });
+    });
+
     // adding in layers of custom study points
     const studylayers = [
-        {'id': 'zones-outline',
+        {
+            'id': 'zones-outline',
             'type': 'line',
             'source': 'zones',
             // 'minzoom': zoomThreshold,
@@ -122,7 +145,8 @@ map.on('style.load', () => {
                 },
             }
         },
-        {'id': 'routes-lines',
+        {
+            'id': 'routes-lines',
             'type': 'line',
             'source': 'scan-routes',
             // 'minzoom': zoomThreshold,
@@ -130,91 +154,80 @@ map.on('style.load', () => {
                 'visibility': 'none',
             },
             'paint': {
-                'line-color': '#eeff41',
+                'line-color': '#a84aba',
                 'line-width': {
                     stops: [[12, 1], [13, 1], [14, 2.5], [15, 3]]
                 },
                 'line-dasharray': [0, 2, 4]
             }
         },
-        {'id': 'zone-labels',
+        {
+            'id': 'zone-labels',
             'type': 'symbol',
             'source': 'zones',
             'minzoom': zoomThreshold,
             'layout': {
                 'text-field': ['get', 'zone-id'],
                 'text-justify': 'auto',
-                'text-size': 16,
+                'text-size': {
+                    stops: [[12, 0], [13, 0], [14, 12], [16, 16]]
+                },
                 'visibility': 'none',
             },
             'paint': {
                 'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
+                'text-halo-color': '#292828',
                 'text-halo-width': 2
             }
         },
-        {'id': 'entry-points-circles',
-        'type': 'circle',
-        'source': 'entry-points',
-        // 'minzoom': zoomThreshold,
-        'layout': {
-            'visibility': 'none',
-        },
-        'paint': {
-            'circle-radius': {
-                stops: [[12, 1], [13, 2], [14, 6], [15, 8], [16, 12]]
-            },
-            'circle-color': '#0197A6',
-            'circle-opacity': 0.7,
-            'circle-stroke-color': '#000000',
-            'circle-stroke-width': 1
-        }
-        },
-        {'id': 'entry-points-labels',
+        {
+            'id': 'entry-points-icons',
             'type': 'symbol',
             'source': 'entry-points',
-            'minzoom': zoomThreshold,
+            // 'minzoom': zoomThreshold,
             'layout': {
-                'text-field': ['get', 'id'],
+                'visibility': 'none',
+                'icon-image':
+                    ['match',
+                        ['get', 'category'],
+                        'Pedestrian Count', 'assets/ped-icon',
+                        'Car Count', 'assets/car-icon',
+                        'All Count', 'assets/all-icon',
+                        'assets/ped-icon'],
+                'icon-size': {
+                    stops: [[11, 0], [13, .4], [14, .6], [16, 1]]
+                },
+                'text-field': ['get', 'entry-point-id'],
                 'text-justify': 'auto',
-                'text-size': 16,
-                'text-offset': [0, -1.5],
-                'visibility': 'none'
+                'text-size': {
+                    stops: [[12, 0], [13, 0], [14, 12], [16, 16]]
+                },
+                'text-offset': [0, -2.5],
+                'text-anchor': 'top',
+                'text-allow-overlap': true, // Allow text to overlap
+                'text-ignore-placement': true, // Ignore placement rules    
+                'visibility': 'none',
             },
             'paint': {
                 'text-color': '#F3F3F3',
-                'text-halo-color': '#565656',
-                'text-halo-width': 2
+                'text-halo-color': '#292828',
+                'text-halo-width': 2,
             }
-        }
-        // {'id': 'entry-points-circles',
-        //     'type': 'symbol',
-        //     'source': 'entry-points',
-        //     'minzoom': zoomThreshold,
-        //     'layout': {
-        //         'icon-image': [
-        //             'match', 
-        //             ['get', 'category'],
-        //             'Pedestrian Count', 'assets/ped-icon.svg',
-        //             'All Count', 'assets/all-icon.svg',
-        //             'Car Count', 'assets/car-icon.svg',
-        //             'assets/ped-icon.svg'],
-        //         'icon-size': 10,
-        //         'icon-allow-overlap': true
-        //     },
-        //     'paint': {}
-        // },
+        },
     ]
+
+    // adding all the study layers at once
     studylayers.forEach(layer => {
         map.addLayer(layer);
     })
+
+
+    // adding text in the side bar that shows park name
+    map.on('click', 'bopc-parks-fill', (e) => {
+        var name_label = e.features[0].properties.name_label
+        var year = e.features[0].properties.year
+        var park_form = e.features[0].properties.park_form
+        $('#park-name').text(`${name_label}, est. ${year}.`)
+        $('#park-form').text(`Study form: ${park_form}`)
+    })
 });
-
-// adding text in the side bar that shows park name
-// map.on('click', 'bopc-parks-fill', (e) => {
-//     var name_label = e.features[0].properties.name_label
-//     var year = e.features[0].properties.year
-//     $('#park-name').text(`${name_label}, est. ${year}.`)
-// });
-
-
