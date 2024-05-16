@@ -90,7 +90,6 @@ map.on('style.load', () => {
         // 'minzoom': zoomThreshold,
         'layout': {
             'text-field': ['get', 'name_label'],
-            'text-font-family': 'Galvji',
             'text-justify': 'auto',
             'text-size': {
                 stops: [[12, 14], [13, 16], [14, 18], [15, 20], [16, 24]]

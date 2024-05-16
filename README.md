@@ -17,5 +17,8 @@ Website is live here: <a href="https://jlsaab.github.io/bopc-park-usership-study
 ![alt text](assets/map-sample-full.png "Full Map")
 
 #### The view of MLK Jr Park, which has six activity scan routes and seven entry points
-![alt text](assets/map-sample-detail.png "Detail Map")
+![alt text](assets/map-sample-mlk-satellite.png "Detail Map")
+
+#### The view of MLK Jr Park with a different background, for better visibility on nearby streets
+![alt text](assets/map-sample-mlk-streets.png "Detail Map")
 

@@ -21,12 +21,6 @@ const map = new mapboxgl.Map({
     hash: true
 });
 
-// styles for reference
-// streets style: 'mapbox://styles/mapbox/streets-v12'
-// light style: 'mapbox://styles/mapbox/light-v11',
-// satellite style: 'mapbox://styles/mapbox/satellite-v9',
-
-
 // add zoom buttons
 map.addControl(new mapboxgl.NavigationControl());
 
